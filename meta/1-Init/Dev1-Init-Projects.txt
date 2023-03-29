@@ -12,3 +12,6 @@ dotnet ef database update
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Add-Migration InitialCreate
 Update-Database
+
+
+See Marketplaces\TestRuns\0x-0

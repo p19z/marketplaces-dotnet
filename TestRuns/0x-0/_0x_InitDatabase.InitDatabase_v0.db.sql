@@ -4,15 +4,12 @@ CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
     "ProductVersion" TEXT NOT NULL
 );
-INSERT INTO __EFMigrationsHistory VALUES('20230328191211_InitialCreate','7.0.4');
-CREATE TABLE IF NOT EXISTS "CategoriesLists" (
-    "CategoriesListId" INTEGER NOT NULL CONSTRAINT "PK_CategoriesLists" PRIMARY KEY AUTOINCREMENT
-);
+INSERT INTO __EFMigrationsHistory VALUES('20230329132402_InitialCreate','7.0.4');
 CREATE TABLE IF NOT EXISTS "Marketplaces" (
     "MarketplaceId" INTEGER NOT NULL CONSTRAINT "PK_Marketplaces" PRIMARY KEY AUTOINCREMENT,
     "Title" TEXT NULL
 );
-INSERT INTO Marketplaces VALUES(1,'Test-0c-0');
+INSERT INTO Marketplaces VALUES(1,'Test-0b-0');
 CREATE TABLE IF NOT EXISTS "Users" (
     "UserId" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
     "Email" TEXT NOT NULL,
@@ -23,9 +20,12 @@ CREATE TABLE IF NOT EXISTS "Categories" (
     "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Categories" PRIMARY KEY AUTOINCREMENT,
     "Title" TEXT NULL,
     "Content" TEXT NULL,
-    "CategoriesListId" INTEGER NULL,
-    CONSTRAINT "FK_Categories_CategoriesLists_CategoriesListId" FOREIGN KEY ("CategoriesListId") REFERENCES "CategoriesLists" ("CategoriesListId")
+    "MarketplaceId" INTEGER NULL,
+    CONSTRAINT "FK_Categories_Marketplaces_MarketplaceId" FOREIGN KEY ("MarketplaceId") REFERENCES "Marketplaces" ("MarketplaceId")
 );
+INSERT INTO Categories VALUES(1,'Cat. 1','First test category',1);
+INSERT INTO Categories VALUES(2,'Cat. 2','Second test category',1);
+INSERT INTO Categories VALUES(3,'Cat. 3','Third test category',1);
 CREATE TABLE IF NOT EXISTS "Offers" (
     "OfferId" INTEGER NOT NULL CONSTRAINT "PK_Offers" PRIMARY KEY AUTOINCREMENT,
     "UserId" INTEGER NOT NULL,
@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS "Orders" (
 );
 DELETE FROM sqlite_sequence;
 INSERT INTO sqlite_sequence VALUES('Marketplaces',1);
-CREATE INDEX "IX_Categories_CategoriesListId" ON "Categories" ("CategoriesListId");
+INSERT INTO sqlite_sequence VALUES('Categories',3);
+CREATE INDEX "IX_Categories_MarketplaceId" ON "Categories" ("MarketplaceId");
 CREATE INDEX "IX_Offers_CategoryId" ON "Offers" ("CategoryId");
 CREATE INDEX "IX_Offers_UserId" ON "Offers" ("UserId");
 CREATE INDEX "IX_Orders_OfferId" ON "Orders" ("OfferId");

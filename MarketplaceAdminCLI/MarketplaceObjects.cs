@@ -9,13 +9,6 @@ namespace MarketplaceObjects
         public string? Title { get; set; }
 
         [Required]
-        public CategoriesList? CategoriesList;
-    }
-
-    public class CategoriesList
-    {
-        public int CategoriesListId { get; set; }
-
         public List<Category> Categories { get; } = new();
     }
 

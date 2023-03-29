@@ -17,35 +17,24 @@ namespace MarketplaceAdminCLI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("MarketplaceObjects.CategoriesList", b =>
-                {
-                    b.Property<int>("CategoriesListId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("CategoriesListId");
-
-                    b.ToTable("CategoriesLists");
-                });
-
             modelBuilder.Entity("MarketplaceObjects.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CategoriesListId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Content")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("MarketplaceId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
                     b.HasKey("CategoryId");
 
-                    b.HasIndex("CategoriesListId");
+                    b.HasIndex("MarketplaceId");
 
                     b.ToTable("Categories");
                 });
@@ -142,9 +131,9 @@ namespace MarketplaceAdminCLI.Migrations
 
             modelBuilder.Entity("MarketplaceObjects.Category", b =>
                 {
-                    b.HasOne("MarketplaceObjects.CategoriesList", null)
+                    b.HasOne("MarketplaceObjects.Marketplace", null)
                         .WithMany("Categories")
-                        .HasForeignKey("CategoriesListId");
+                        .HasForeignKey("MarketplaceId");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Offer", b =>
@@ -185,7 +174,7 @@ namespace MarketplaceAdminCLI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MarketplaceObjects.CategoriesList", b =>
+            modelBuilder.Entity("MarketplaceObjects.Marketplace", b =>
                 {
                     b.Navigation("Categories");
                 });

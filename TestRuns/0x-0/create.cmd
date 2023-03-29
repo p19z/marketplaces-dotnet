@@ -1,6 +1,6 @@
 set TESTNAME=_0_InitDatabase.InitDatabase_v0
 
-pushd ..\..\MarketplacesAdmin
+pushd ..\..\MarketplaceAdminCLI
 dotnet ef database update
 popd
 

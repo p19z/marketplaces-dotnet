@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{B2F0A9F9-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Init", "1-Init", "{30F7AEC4-FCC6-449F-BEA4-514ADB58B2DE}"
 	ProjectSection(SolutionItems) = preProject
-		1-Init-Projects.txt = 1-Init-Projects.txt
+		meta\1-Init\Dev1-Init-Projects.txt = meta\1-Init\Dev1-Init-Projects.txt
 	EndProjectSection
 EndProject
 Global

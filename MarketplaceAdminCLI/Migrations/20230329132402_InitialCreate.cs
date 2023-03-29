@@ -11,18 +11,6 @@ namespace MarketplaceAdminCLI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CategoriesLists",
-                columns: table => new
-                {
-                    CategoriesListId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoriesLists", x => x.CategoriesListId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Marketplaces",
                 columns: table => new
                 {
@@ -58,16 +46,16 @@ namespace MarketplaceAdminCLI.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Content = table.Column<string>(type: "TEXT", nullable: true),
-                    CategoriesListId = table.Column<int>(type: "INTEGER", nullable: true)
+                    MarketplaceId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryId);
                     table.ForeignKey(
-                        name: "FK_Categories_CategoriesLists_CategoriesListId",
-                        column: x => x.CategoriesListId,
-                        principalTable: "CategoriesLists",
-                        principalColumn: "CategoriesListId");
+                        name: "FK_Categories_Marketplaces_MarketplaceId",
+                        column: x => x.MarketplaceId,
+                        principalTable: "Marketplaces",
+                        principalColumn: "MarketplaceId");
                 });
 
             migrationBuilder.CreateTable(
@@ -127,9 +115,9 @@ namespace MarketplaceAdminCLI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_CategoriesListId",
+                name: "IX_Categories_MarketplaceId",
                 table: "Categories",
-                column: "CategoriesListId");
+                column: "MarketplaceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Offers_CategoryId",
@@ -156,9 +144,6 @@ namespace MarketplaceAdminCLI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Marketplaces");
-
-            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
@@ -171,7 +156,7 @@ namespace MarketplaceAdminCLI.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "CategoriesLists");
+                name: "Marketplaces");
         }
     }
 }

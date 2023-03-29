@@ -6,7 +6,6 @@ namespace MarketplaceObjects
     {
         public DbSet<Marketplace> Marketplaces { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<CategoriesList> CategoriesLists { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Offer> Offers { get; set; }
         public DbSet<Order> Orders { get; set; }
