@@ -1,0 +1,34 @@
+﻿@page
+@model MarketplaceWebUI.Pages.MarketplaceModel
+@using MarketplaceObjects
+@{
+    ViewData["Title"] = "Marketplace";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Marketplace</h1>
+    <p>Ipsum, etc.</p>
+
+    <p>@{
+            @Model.Marketplace?.ToString()
+    }</p>
+
+    @{
+        //List<ObjectsModel> objects = new List<ObjectsModel>();
+
+        //@foreach (var record in objects)
+        //{
+        //    <tr>
+        //        <td>
+        //            @Html.DisplayFor(modelItem => record.COLUMN1)
+        //        </td>
+        //        <td>
+        //            @Html.DisplayFor(modelItem => record.COLUMN2)
+        //        </td>
+        //        <td>
+        //            @Html.DisplayFor(modelItem => record.COLUMN3)
+        //        </td>
+        //    </tr>
+        //}
+    }
+</div>

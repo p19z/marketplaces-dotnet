@@ -1,4 +1,8 @@
+using MarketplaceObjects;
 var builder = WebApplication.CreateBuilder(args);
+
+// REF 230329-1
+builder.Services.AddDbContext<MarketplaceContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
