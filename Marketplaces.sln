@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Init", "1-Init", "{30F7AE
 		meta\1-Init\Dev1-Init-Projects.txt = meta\1-Init\Dev1-Init-Projects.txt
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceWebAPI", "MarketplaceWebAPI\MarketplaceWebAPI.csproj", "{BE269CAC-9DC6-4BFE-B5AD-992ECEF3C171}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{D10344B3-8137-41C3-9CC4-3C2F271C7684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D10344B3-8137-41C3-9CC4-3C2F271C7684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D10344B3-8137-41C3-9CC4-3C2F271C7684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE269CAC-9DC6-4BFE-B5AD-992ECEF3C171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE269CAC-9DC6-4BFE-B5AD-992ECEF3C171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE269CAC-9DC6-4BFE-B5AD-992ECEF3C171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE269CAC-9DC6-4BFE-B5AD-992ECEF3C171}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using MarketplacesAdminCLI;
+using MarketplaceObjects;
+using MarketplaceAdminCLI;
 
 if (args.Length > 0)
 {

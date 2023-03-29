@@ -1,27 +1,28 @@
 ﻿using MarketplaceObjects;
 
-namespace MarketplacesAdminCLI
+namespace MarketplaceAdminCLI
 {
     internal static class _0_InitDatabase
     {
         internal static void InitDatabase_v0()
         {
-            using (var db = new MarketplacesContext())
+            using (var db = new MarketplaceContext())
             {
 
                 // Note: This sample requires the database to be created before running.
                 Console.WriteLine($"Database path: {db.DbPath}.");
 
                 // Create
+                // Repeating db.SaveChanges(); for determinism. Prly not most efficient.
                 Console.WriteLine("Inserting a new marketplace");
                 db.Add(new Marketplace { Title = "Test-0a-0" });
                 db.SaveChanges();
 
                 // Read
                 Console.WriteLine("Querying for first marketplace");
-                var marketplace = db.Marketplaces
-                    .OrderBy(m => m.MarketplaceId)
-                    .First();
+                var marketplaces = db.Marketplaces
+                    .OrderBy(m => m.MarketplaceId);
+                var marketplace = marketplaces.First();
 
                 // Update
                 Console.WriteLine("Creating a categories list");
@@ -36,6 +37,7 @@ namespace MarketplacesAdminCLI
 
                 category = new Category { Title = "Cat. 3", Content = "Third test category" };
                 marketplace.Categories.Add(category);
+
                 db.SaveChanges();
 
                 /*

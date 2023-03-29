@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MarketplaceAdminCLI.Migrations
 {
-    [DbContext(typeof(MarketplacesContext))]
-    partial class MarketplacesContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MarketplaceContext))]
+    partial class MarketplaceContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -8,8 +8,7 @@ namespace MarketplaceObjects
 
         public string? Title { get; set; }
 
-        [Required]
-        public List<Category> Categories { get; } = new();
+        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
     }
 
     public class Category
@@ -20,8 +19,8 @@ namespace MarketplaceObjects
         public string? Title { get; set; }
         // [Required]
         public string? Content { get; set; }
-    }    
-        
+    }
+
     public class Offer
     {
         public int OfferId { get; set; }
@@ -47,7 +46,7 @@ namespace MarketplaceObjects
         public string? Title { get; set; }
         public string? Content { get; set; }
     }
-        
+
     public class User
     {
         public int UserId { get; set; }

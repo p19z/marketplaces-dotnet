@@ -6,5 +6,6 @@ popd
 
 copy /y %LocalAppData%\marketplaces.db .\%TESTNAME%.db
 sqlite3 .\%TESTNAME%.db .dump > .\%TESTNAME%.db.sql
+del .\%TESTNAME%.db
 
 @pause
