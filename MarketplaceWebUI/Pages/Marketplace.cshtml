@@ -10,25 +10,22 @@
     <p>Ipsum, etc.</p>
 
     <p>@{
-            @Model.Marketplace?.ToString()
+            @Model.Marketplace.Title
     }</p>
 
     @{
-        //List<ObjectsModel> objects = new List<ObjectsModel>();
-
-        //@foreach (var record in objects)
-        //{
-        //    <tr>
-        //        <td>
-        //            @Html.DisplayFor(modelItem => record.COLUMN1)
-        //        </td>
-        //        <td>
-        //            @Html.DisplayFor(modelItem => record.COLUMN2)
-        //        </td>
-        //        <td>
-        //            @Html.DisplayFor(modelItem => record.COLUMN3)
-        //        </td>
-        //    </tr>
-        //}
+        @foreach (var cat in @Model.Marketplace.Categories)
+        {
+            <table>
+                <tr>
+                    <td>
+                        @cat.Title
+                    </td>
+                    <td>
+                        @cat.Content
+                    </td>
+                </tr>
+            </table>
+        }
     }
 </div>
