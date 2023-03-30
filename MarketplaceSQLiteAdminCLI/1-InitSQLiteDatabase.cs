@@ -13,6 +13,10 @@ namespace MarketplaceAdminCLI
                 Console.WriteLine($"Database path: {db.DbPath}.");
 
                 // Create
+                Console.WriteLine("Creating a super user");
+                db.Add(new User { Email = "su", Password = "su", Alias = "SuperUser" });
+
+                // Create
                 // Repeating db.SaveChanges(); for determinism. Prly not most efficient.
                 Console.WriteLine("Inserting a new marketplace");
                 db.Add(new Marketplace { Title = "Test-0a-0" });

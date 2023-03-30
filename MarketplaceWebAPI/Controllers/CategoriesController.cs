@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketplaceObjects;
 
-namespace MarketplaceWebAPI.Controllers.TESTONLY
+namespace MarketplaceWebAPI.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
@@ -23,8 +23,14 @@ namespace MarketplaceWebAPI.Controllers.TESTONLY
         public List<Category>? Get()
         {
             _logger.LogInformation("List<Category>? Get()");
-            var mp = MarketplaceCtrl.GetMarketplace(_context, _logger);
-            return mp.Categories.ToList();
+            return MarketplaceCtrl.GetAllCategories(_context);
+        }
+
+        [HttpGet("byId")]
+        public Category? Get(int id)
+        {
+            _logger.LogInformation("List<Category>? GetById()");
+            return MarketplaceCtrl.GetCategoryById(id, _context);
         }
 
         /*

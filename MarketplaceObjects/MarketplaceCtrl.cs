@@ -19,11 +19,40 @@ namespace MarketplaceObjects
 
         public static Marketplace GetMarketplace(MarketplaceSQLContext context, ILogger<MarketplaceCtrl>? logger)
         {
-            logger?.LogInformation("!!!GetMarketplace!!!");
+            logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
             return context.Marketplaces
                 .Include(x => x.Categories)
                 .OrderBy(m => m.MarketplaceId)
                 .First();
+        }
+
+        public static List<Category> GetAllCategories(MarketplaceSQLContext context)
+        {
+            //logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
+            return context.Categories
+                .OrderBy(m => m.CategoryId)
+                .ToList();
+        }
+
+        public static Category? GetCategoryById(int categoryId, MarketplaceSQLContext context)
+        {
+            //logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
+            return context.Categories
+                .Where(c => c.CategoryId == categoryId)
+                .FirstOrDefault();
+        }
+
+        public static User? GetUserFromId(int userId, MarketplaceSQLContext context)
+        {
+            //logger?.LogInformation($"[ctl] !!!GetUser( {userId} )!!!");
+            return context.Users
+                .Include(x => x.Offers)
+                    .ThenInclude(x => x.Category)
+                .Include(x => x.Orders)
+                    .ThenInclude(x => x.Offer)
+                        .ThenInclude(x => x.Category)
+                .Where(u => u.UserId == userId)
+                .FirstOrDefault();
         }
     }
 }

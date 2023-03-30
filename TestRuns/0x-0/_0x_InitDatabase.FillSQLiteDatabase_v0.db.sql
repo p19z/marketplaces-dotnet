@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS "Users" (
     "Password" TEXT NOT NULL,
     "Alias" TEXT NULL
 );
+INSERT INTO Users VALUES(1,'su','su','SuperUser');
 CREATE TABLE IF NOT EXISTS "Categories" (
     "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Categories" PRIMARY KEY AUTOINCREMENT,
     "Title" TEXT NULL,
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS "Orders" (
 );
 DELETE FROM sqlite_sequence;
 INSERT INTO sqlite_sequence VALUES('Marketplaces',1);
+INSERT INTO sqlite_sequence VALUES('Users',1);
 INSERT INTO sqlite_sequence VALUES('Categories',3);
 CREATE INDEX "IX_Categories_MarketplaceId" ON "Categories" ("MarketplaceId");
 CREATE INDEX "IX_Offers_CategoryId" ON "Offers" ("CategoryId");
