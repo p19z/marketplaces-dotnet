@@ -13,8 +13,8 @@ builder.Logging.AddConsole();
 // but the context type 'MarketplaceContext' only declares a parameterless constructor.
 // This means that the configuration passed to 'AddDbContext' will never be used.
 //builder.Services.AddDbContext<MarketplaceContext>(
-//    options => options.UseSqlite($"Data Source={MarketplaceContext.BuildDbPath()}"));
-builder.Services.AddDbContext<MarketplaceContext>();
+//    options => options.UseSqlite($"Data Source={MarketplaceContext.GetDbPath()}"));
+builder.Services.AddDbContext<MarketplaceSQLContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -8,11 +8,11 @@ namespace MarketplaceWebAPI.Controllers
     [Route("api/v1/[controller]")]
     public class MarketplaceController : ControllerBase
     {
-        private readonly MarketplaceContext _context;
+        private readonly MarketplaceSQLContext _context;
         private readonly ILogger<MarketplaceController> _logger;
 
         public MarketplaceController(
-            MarketplaceContext context,
+            MarketplaceSQLContext context,
             ILogger<MarketplaceController> logger
             )
         {

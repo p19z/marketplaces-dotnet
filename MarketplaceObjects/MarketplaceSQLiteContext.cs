@@ -2,26 +2,21 @@
 
 namespace MarketplaceObjects
 {
-    public class MarketplaceContext : DbContext
+    public class MarketplaceSQLiteContext : MarketplaceSQLContext
     {
-        public DbSet<Marketplace> Marketplaces { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Offer> Offers { get; set; }
-        public DbSet<Order> Orders { get; set; }
 
         public string DbPath { get; }
 
-        public static string BuildDbPath()
+        public static string GetDbPath()
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
             return System.IO.Path.Join(path, "marketplaces.db");
         }
 
-        public MarketplaceContext()
+        public MarketplaceSQLiteContext()
         {
-            DbPath = BuildDbPath();
+            DbPath = GetDbPath();
         }
 
         // REF 230329-1

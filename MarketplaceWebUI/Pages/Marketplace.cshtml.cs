@@ -1,5 +1,4 @@
 using MarketplaceObjects;
-using MarketplaceWebAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,20 +8,21 @@ namespace MarketplaceWebUI.Pages
     {
         public readonly Marketplace Marketplace;
 
-        private readonly MarketplaceContext _context;
-        private readonly ILogger<MarketplaceController> _logger;
-        private readonly MarketplaceController? _ctl;
+        private readonly MarketplaceSQLContext _context;
+        private readonly ILogger<MarketplaceCtrl> _logger;
 
         public MarketplaceModel(
-            MarketplaceContext context,
-            ILogger<MarketplaceController> logger
+            MarketplaceSQLContext context,
+            ILogger<MarketplaceCtrl> logger
             )
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _logger = logger;
 
-            _ctl = new MarketplaceController(_context, _logger);
-            Marketplace = _ctl.Get();
+            //_ctl = new MarketplaceCtrl(_context, _logger);
+            //Marketplace = _ctl.GetMarketplace();
+
+            Marketplace = MarketplaceCtrl.GetMarketplace(_context, _logger);
         }
 
         public void OnGet()

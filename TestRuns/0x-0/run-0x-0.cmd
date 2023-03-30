@@ -1,6 +1,6 @@
-set TESTNAME=_0x_InitDatabase.InitDatabase_v0
+set TESTNAME=_0x_InitDatabase.InitSQLiteDatabase_v0
 
-set OPTNNAME=hardcodedPopulate0x-0
+set OPTNNAME=hardcodedPopulateSQLite0x-0
 set exe=..\..\MarketplaceAdminCLI\bin\Debug\net6.0\MarketplaceAdminCLI.exe
 set cmd= %exe% %OPTNNAME%
 

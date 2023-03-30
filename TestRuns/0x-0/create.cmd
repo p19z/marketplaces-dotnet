@@ -1,4 +1,4 @@
-set TESTNAME=_0_InitDatabase.InitDatabase_v0
+set TESTNAME=_0_InitDatabase.InitSQLiteDatabase_v0
 
 pushd ..\..\MarketplaceAdminCLI
 dotnet ef database update

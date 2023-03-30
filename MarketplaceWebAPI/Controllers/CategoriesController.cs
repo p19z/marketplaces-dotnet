@@ -2,17 +2,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketplaceObjects;
 
-namespace MarketplaceWebAPI.Controllers
+namespace MarketplaceWebAPI.Controllers.TESTONLY
 {
     [ApiController]
     [Route("api/v1/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly MarketplaceContext _context;
+        private readonly MarketplaceSQLContext _context;
         private readonly ILogger<MarketplaceController> _logger;
 
         public CategoriesController(
-            MarketplaceContext context,
+            MarketplaceSQLContext context,
             ILogger<MarketplaceController> logger)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));

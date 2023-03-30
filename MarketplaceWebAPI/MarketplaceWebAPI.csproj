@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MarketplaceAdminCLI\MarketplaceAdminCLI.csproj" />
+    <ProjectReference Include="..\MarketplaceObjects\MarketplaceObjects.csproj" />
   </ItemGroup>
 
 </Project>
