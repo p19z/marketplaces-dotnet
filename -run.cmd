@@ -2,8 +2,8 @@
 
 @rem Take "wwwroot" into account
 @rem => Do not use %bin% as CD.
-@pushd MarketplaceWebUI\%bin%
-start /B MarketplaceWebUI.exe
+@pushd MarketplaceWebUI
+start /B %bin%/MarketplaceWebUI.exe
 @popd
 
 :: PROBLEMS
