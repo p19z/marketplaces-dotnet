@@ -9,7 +9,7 @@ if (args.Length > 0)
         if (arg == "hardcodedPopulateSQLite0x-0")
         {
             Console.WriteLine("_0x_InitDatabase.InitSQLiteDatabase_v0!");
-            _0_InitDatabase.InitSQLiteDatabase_v0();
+            _0_InitDatabase.FillSQLiteDatabase_v0();
         }
     }
 }

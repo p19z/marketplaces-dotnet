@@ -8,11 +8,11 @@ namespace MarketplaceWebUI.Pages
     {
         public readonly Marketplace Marketplace;
 
-        private readonly MarketplaceSQLContext _context;
+        private readonly MarketplaceDbCtx _context;
         private readonly ILogger<MarketplaceCtrl> _logger;
 
         public MarketplaceModel(
-            MarketplaceSQLContext context,
+            MarketplaceDbCtx context,
             ILogger<MarketplaceCtrl> logger
             )
         {

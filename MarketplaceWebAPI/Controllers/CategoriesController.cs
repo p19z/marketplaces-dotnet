@@ -8,12 +8,12 @@ namespace MarketplaceWebAPI.Controllers.TESTONLY
     [Route("api/v1/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly MarketplaceSQLContext _context;
-        private readonly ILogger<MarketplaceController> _logger;
+        private readonly MarketplaceDbCtx _context;
+        private readonly ILogger<MarketplaceCtrl> _logger;
 
         public CategoriesController(
-            MarketplaceSQLContext context,
-            ILogger<MarketplaceController> logger)
+            MarketplaceDbCtx context,
+            ILogger<MarketplaceCtrl> logger)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _logger = logger;
@@ -23,8 +23,7 @@ namespace MarketplaceWebAPI.Controllers.TESTONLY
         public List<Category>? Get()
         {
             _logger.LogInformation("List<Category>? Get()");
-            var ctl = new MarketplaceController(_context, _logger);
-            var mp = ctl.Get();
+            var mp = MarketplaceCtrl.GetMarketplace(_context, _logger);
             return mp.Categories.ToList();
         }
 

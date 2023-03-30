@@ -4,7 +4,7 @@ namespace MarketplaceAdminCLI
 {
     internal static class _0_InitDatabase
     {
-        internal static void InitSQLiteDatabase_v0()
+        internal static void FillSQLiteDatabase_v0()
         {
             using (var db = new MarketplaceSQLiteContext())
             {

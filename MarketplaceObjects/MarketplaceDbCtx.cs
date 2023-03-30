@@ -1,1 +1,1 @@
-﻿public class MarketplaceDbCtx : MarketplaceObjects.MarketplaceSQLiteContext { }
+﻿internal class MarketplaceDbCtx : MarketplaceObjects.MarketplaceSQLiteContext { }

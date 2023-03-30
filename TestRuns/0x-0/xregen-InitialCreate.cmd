@@ -1,3 +1,5 @@
-pushd ..\..\MarketplaceSQLiteAdminCLI
-dotnet ef migrations add InitialCreate
+pushd ..\..\MarketplaceObjects
+dotnet ef migrations add InitialCreate --context MarketplaceSQLiteContext
 popd
+
+@pause
