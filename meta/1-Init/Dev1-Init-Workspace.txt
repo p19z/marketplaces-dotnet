@@ -1,2 +1,18 @@
 See Marketplaces\-startAll.cmd
 See ..\230331-launchSettings.json
+
+
+
+See Dev1-Init-SqlExpress-sysadmin
+https://stackoverflow.com/q/1616515/
+See sql-server-express-create-database-permission-denied-in-database-master
+
+
+
+
+Microsoft.Data.SqlClient.SqlException (0x80131904): Introducing FOREIGN KEY constraint 'FK_Orders_Users_UserId' on table 'Orders' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+
+https://stackoverflow.com/q/17127351/
+introducing-foreign-key-constraint-may-cause-cycles-or-multiple-cascade-paths
+
+> Because Xxx is required, all one-to-many relationships where Xxx is involved will have cascading delete enabled by default.

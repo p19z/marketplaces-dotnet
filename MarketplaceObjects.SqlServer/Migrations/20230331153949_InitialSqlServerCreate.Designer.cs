@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketplaceObjects.SqlServer.Migrations
 {
     [DbContext(typeof(MarketplaceSqlServerContext))]
-    [Migration("20230331140840_InitialSqlServerCreate")]
+    [Migration("20230331153949_InitialSqlServerCreate")]
     partial class InitialSqlServerCreate
     {
         /// <inheritdoc />
@@ -33,13 +33,14 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
-                    b.Property<string>("Content")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("MarketplaceId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
@@ -58,6 +59,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MarketplaceId"));
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MarketplaceId");
@@ -76,10 +78,19 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -102,14 +113,16 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<int>("OfferId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("TimeSlot")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -132,7 +145,13 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Alias")
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -162,7 +181,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarketplaceObjects.User", "User")
+                    b.HasOne("MarketplaceObjects.User", "Seller")
                         .WithMany("Offers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -170,7 +189,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("User");
+                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Order", b =>
@@ -181,15 +200,15 @@ namespace MarketplaceObjects.SqlServer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarketplaceObjects.User", "User")
+                    b.HasOne("MarketplaceObjects.User", "Buyer")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Offer");
+                    b.Navigation("Buyer");
 
-                    b.Navigation("User");
+                    b.Navigation("Offer");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Marketplace", b =>

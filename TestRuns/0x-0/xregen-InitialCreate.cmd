@@ -1,6 +1,5 @@
 pushd ..\..\MarketplaceObjects.SQLite
-@rem --context MarketplaceSQLiteContext
-dotnet ef migrations add InitialSQLiteCreate
+dotnet ef migrations add InitialSQLiteCreate --context MarketplaceSQLiteContext
 popd
 
 @pause

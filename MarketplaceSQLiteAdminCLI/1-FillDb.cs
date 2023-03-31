@@ -30,13 +30,13 @@ namespace MarketplaceAdminCLI
             marketplace.Title = "Test-0b-0";
             Category category;
 
-            category = new Category { Title = "Cat. 1", Content = "First test category" };
+            category = new Category { Name = "Cat. 1", Description = "First test category" };
             marketplace.Categories.Add(category);
 
-            category = new Category { Title = "Cat. 2", Content = "Second test category" };
+            category = new Category { Name = "Cat. 2", Description = "Second test category" };
             marketplace.Categories.Add(category);
 
-            category = new Category { Title = "Cat. 3", Content = "Third test category" };
+            category = new Category { Name = "Cat. 3", Description = "Third test category" };
             marketplace.Categories.Add(category);
 
             db.SaveChanges();

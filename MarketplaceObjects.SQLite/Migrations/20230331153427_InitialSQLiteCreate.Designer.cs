@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketplaceObjects.SQLite.Migrations
 {
     [DbContext(typeof(MarketplaceSQLiteContext))]
-    [Migration("20230331140504_InitialSQLiteCreate")]
+    [Migration("20230331153427_InitialSQLiteCreate")]
     partial class InitialSQLiteCreate
     {
         /// <inheritdoc />
@@ -26,13 +26,14 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("MarketplaceId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("CategoryId");
@@ -49,6 +50,7 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("MarketplaceId");
@@ -65,10 +67,19 @@ namespace MarketplaceObjects.SQLite.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
+
                     b.Property<string>("Content")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
@@ -89,13 +100,15 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Content")
-                        .HasColumnType("TEXT");
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
 
                     b.Property<int>("OfferId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Title")
+                    b.Property<DateTime?>("TimeSlot")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
@@ -117,7 +130,13 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Alias")
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("ChangeCheck")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -147,7 +166,7 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarketplaceObjects.User", "User")
+                    b.HasOne("MarketplaceObjects.User", "Seller")
                         .WithMany("Offers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -155,7 +174,7 @@ namespace MarketplaceObjects.SQLite.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("User");
+                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Order", b =>
@@ -166,15 +185,15 @@ namespace MarketplaceObjects.SQLite.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarketplaceObjects.User", "User")
+                    b.HasOne("MarketplaceObjects.User", "Buyer")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Offer");
+                    b.Navigation("Buyer");
 
-                    b.Navigation("User");
+                    b.Navigation("Offer");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Marketplace", b =>

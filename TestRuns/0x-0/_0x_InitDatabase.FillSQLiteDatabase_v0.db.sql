@@ -4,23 +4,24 @@ CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
     "ProductVersion" TEXT NOT NULL
 );
-INSERT INTO __EFMigrationsHistory VALUES('20230331140504_InitialSQLiteCreate','7.0.4');
+INSERT INTO __EFMigrationsHistory VALUES('20230331153427_InitialSQLiteCreate','7.0.4');
 CREATE TABLE IF NOT EXISTS "Marketplaces" (
     "MarketplaceId" INTEGER NOT NULL CONSTRAINT "PK_Marketplaces" PRIMARY KEY AUTOINCREMENT,
-    "Title" TEXT NULL
+    "Title" TEXT NOT NULL
 );
 INSERT INTO Marketplaces VALUES(1,'Test-0b-0');
 CREATE TABLE IF NOT EXISTS "Users" (
     "UserId" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
+    "ChangeCheck" BLOB NULL,
     "Email" TEXT NOT NULL,
     "Password" TEXT NOT NULL,
     "Alias" TEXT NULL
 );
-INSERT INTO Users VALUES(1,'su','su','SuperUser');
+INSERT INTO Users VALUES(1,NULL,'su','su',NULL);
 CREATE TABLE IF NOT EXISTS "Categories" (
     "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Categories" PRIMARY KEY AUTOINCREMENT,
-    "Title" TEXT NULL,
-    "Content" TEXT NULL,
+    "Name" TEXT NOT NULL,
+    "Description" TEXT NULL,
     "MarketplaceId" INTEGER NULL,
     CONSTRAINT "FK_Categories_Marketplaces_MarketplaceId" FOREIGN KEY ("MarketplaceId") REFERENCES "Marketplaces" ("MarketplaceId")
 );
@@ -29,19 +30,21 @@ INSERT INTO Categories VALUES(2,'Cat. 2','Second test category',1);
 INSERT INTO Categories VALUES(3,'Cat. 3','Third test category',1);
 CREATE TABLE IF NOT EXISTS "Offers" (
     "OfferId" INTEGER NOT NULL CONSTRAINT "PK_Offers" PRIMARY KEY AUTOINCREMENT,
+    "ChangeCheck" BLOB NULL,
     "UserId" INTEGER NOT NULL,
     "CategoryId" INTEGER NOT NULL,
-    "Title" TEXT NULL,
+    "Title" TEXT NOT NULL,
     "Content" TEXT NULL,
+    "PostalCode" TEXT NULL,
     CONSTRAINT "FK_Offers_Categories_CategoryId" FOREIGN KEY ("CategoryId") REFERENCES "Categories" ("CategoryId") ON DELETE CASCADE,
     CONSTRAINT "FK_Offers_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId") ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS "Orders" (
     "OrderId" INTEGER NOT NULL CONSTRAINT "PK_Orders" PRIMARY KEY AUTOINCREMENT,
+    "ChangeCheck" BLOB NULL,
     "UserId" INTEGER NOT NULL,
     "OfferId" INTEGER NOT NULL,
-    "Title" TEXT NULL,
-    "Content" TEXT NULL,
+    "TimeSlot" TEXT NULL,
     CONSTRAINT "FK_Orders_Offers_OfferId" FOREIGN KEY ("OfferId") REFERENCES "Offers" ("OfferId") ON DELETE CASCADE,
     CONSTRAINT "FK_Orders_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId") ON DELETE CASCADE
 );
