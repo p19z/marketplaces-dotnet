@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketplaceObjects.Migrations
 {
     [DbContext(typeof(MarketplaceSQLiteContext))]
-    [Migration("20230330153406_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230331121127_InitialSQLiteCreate")]
+    partial class InitialSQLiteCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
