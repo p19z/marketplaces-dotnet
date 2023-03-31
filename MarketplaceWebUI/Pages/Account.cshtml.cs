@@ -1,0 +1,27 @@
+using MarketplaceObjects;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace MarketplaceWebUI.Pages
+{
+    public class AccountModel : PageModel
+    {
+        public readonly User? InspectedUser;
+        public readonly string? InspectedUserAlias;
+
+        private readonly MpSvcs svcs;
+        public AccountModel(
+            MarketplaceDbCtx context,
+            ILogger<MarketplaceDbCtx> logger
+            )
+        {
+            svcs = new MpSvcs(context, logger);
+            InspectedUser = MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, 1);
+            InspectedUserAlias = InspectedUser!.Alias;
+            InspectedUserAlias = InspectedUserAlias ?? InspectedUser!.Email;
+        }
+
+        public void OnGet()
+        {
+        }
+    }
+}

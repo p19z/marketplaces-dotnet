@@ -1,0 +1,76 @@
+﻿@page
+@model MarketplaceWebUI.Pages.AccountModel
+@using MarketplaceObjects
+@{
+    ViewData["Title"] = "Account";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Marketplace</h1>
+    <p>Ipsum, etc.</p>
+
+    <h3>Email</h3>
+    <p>
+        @{
+            @Model.InspectedUser!.Email
+        }
+    </p>
+
+    <h3>Alias</h3>
+    <p>
+        @{
+            @Model.InspectedUser!.Alias
+    }</p>
+
+    <h2>Offers</h2>
+    @{
+        @foreach (var offer in @Model.InspectedUser.Offers)
+        {
+            <table>
+                <tr>
+                    <th>OfferId</th>
+                    <th>CategoryId</th>
+                    <th>TimeSlot</th>
+                </tr>
+                <tr>
+                    <td>
+                        @offer.OfferId
+                    </td>
+                    <td>
+                        @offer.CategoryId
+                    </td>
+                    <td>
+                        @offer.PostalCode
+                    </td>
+                </tr>
+            </table>
+        }
+    }
+
+    <p>TODO: Add count of orders placed on the offers...</p>
+
+    <h2>Orders</h2>
+    @{
+        @foreach (var order in @Model.InspectedUser.Orders)
+        {
+            <table>
+                <tr>
+                    <th>OrderId</th>
+                    <th>OfferId</th>
+                    <th>TimeSlot</th>
+                </tr>
+                <tr>
+                    <td>
+                        @order.OrderId
+                    </td>
+                    <td>
+                        @order.OfferId
+                    </td>
+                    <td>
+                        @order.TimeSlot
+                    </td>
+                </tr>
+            </table>
+        }
+    }
+</div>

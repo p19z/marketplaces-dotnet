@@ -8,29 +8,28 @@ namespace MarketplaceWebAPI.Controllers
     [Route("api/v1/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly MarketplaceDbCtx _context;
-        private readonly ILogger<MarketplaceCtrl> _logger;
-
+        private readonly MpSvcs svcs;
         public CategoriesController(
             MarketplaceDbCtx context,
-            ILogger<MarketplaceCtrl> logger)
+            ILogger<MarketplaceDbCtx> logger
+            )
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _logger = logger;
+            svcs = new MpSvcs(context, logger);
+            // ...
         }
 
-        [HttpGet(Name = "GetCategories")]
+        [HttpGet]
         public List<Category>? Get()
         {
-            _logger.LogInformation("List<Category>? Get()");
-            return MarketplaceCtrl.GetAllCategories(_context);
+            svcs.logger.LogInformation("List<Category>? Get()");
+            return MarketplaceCtrl.GetAllCategories(svcs);
         }
 
         [HttpGet("byId")]
         public Category? Get(int id)
         {
-            _logger.LogInformation("List<Category>? GetById()");
-            return MarketplaceCtrl.GetCategoryById(id, _context);
+            svcs.logger.LogInformation("List<Category>? GetById()");
+            return MarketplaceCtrl.GetCategoryById(svcs, id);
         }
 
         /*

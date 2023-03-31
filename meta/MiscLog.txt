@@ -1,0 +1,12 @@
+2023-03-31
+
+- Dev1-Init-SqlExpress-sysadmin.cmd
+
+Microsoft.Data.SqlClient.SqlException (0x80131904): Introducing FOREIGN KEY constraint 'FK_Orders_Users_UserId' on table 'Orders' may cause cycles or multiple cascade paths.
+
+Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+
+DONE.
+
+
+Adding Razor Page for user and check retrieval of related objects.

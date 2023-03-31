@@ -7,19 +7,28 @@ namespace MarketplaceWebAPI.Controllers
     [Route("api/v1/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly MarketplaceDbCtx _context;
-
+        private readonly MpSvcs svcs;
         public UserController(
             MarketplaceDbCtx context,
-            ILogger<MarketplaceCtrl> logger)
+            ILogger<MarketplaceDbCtx> logger
+            )
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            svcs = new MpSvcs(context, logger);
+            // ...
         }
 
-        [HttpGet(Name = "GetUserFromId")]
+        [HttpGet(Name = "GetAccountInfoFromUserId_v0")]
         public User? Get()
         {
-            return MarketplaceCtrl.GetUserFromId(1, _context);
+            return MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, 1);
         }
+
+        [HttpGet("byId")]
+        public User? Get(int id)
+        {
+            svcs.logger.LogInformation("List<Category>? GetById()");
+            return MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, id);
+        }
+
     }
 }

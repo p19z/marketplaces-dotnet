@@ -13,10 +13,14 @@
             @Model.Marketplace.Title
     }</p>
 
-    @{
-        @foreach (var cat in @Model.Marketplace.Categories)
-        {
-            <table>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        @{
+            @foreach (var cat in @Model.Marketplace.Categories)
+            {
                 <tr>
                     <td>
                         @cat.Name
@@ -25,7 +29,7 @@
                         @cat.Description
                     </td>
                 </tr>
-            </table>
+            }
         }
-    }
+    </table>
 </div>
