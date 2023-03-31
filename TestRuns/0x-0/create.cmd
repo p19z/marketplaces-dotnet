@@ -1,6 +1,6 @@
 set TESTNAME=_0_InitDatabase.InitSQLiteDatabase_v0
 
-pushd ..\..\MarketplaceObjects
+pushd ..\..\MarketplaceObjects.SQLite
 dotnet ef database update --context MarketplaceSQLiteContext
 popd
 

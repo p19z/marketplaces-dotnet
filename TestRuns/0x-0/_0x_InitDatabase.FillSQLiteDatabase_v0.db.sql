@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
     "ProductVersion" TEXT NOT NULL
 );
-INSERT INTO __EFMigrationsHistory VALUES('20230330153406_InitialCreate','7.0.4');
+INSERT INTO __EFMigrationsHistory VALUES('20230331140504_InitialSQLiteCreate','7.0.4');
 CREATE TABLE IF NOT EXISTS "Marketplaces" (
     "MarketplaceId" INTEGER NOT NULL CONSTRAINT "PK_Marketplaces" PRIMARY KEY AUTOINCREMENT,
     "Title" TEXT NULL

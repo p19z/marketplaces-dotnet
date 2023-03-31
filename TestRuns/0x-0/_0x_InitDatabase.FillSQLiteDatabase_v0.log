@@ -1,6 +1,5 @@
 Argument=hardcodedPopulateSQLite0x-0
 _0x_InitDatabase.InitSQLiteDatabase_v0!
-Database path: C:\Users\Pino\AppData\Local\marketplaces.db.
 Creating a super user
 Inserting a new marketplace
 Querying for first marketplace
