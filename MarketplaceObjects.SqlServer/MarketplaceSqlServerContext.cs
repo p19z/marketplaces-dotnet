@@ -19,6 +19,6 @@ namespace MarketplaceObjects
         // C:\Program Files\Microsoft SQL Server\150\SSEI\Resources
         // Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer($"Server=localhost\\SQLEXPRESS;Database={DbName};Trusted_Connection=True");
+            => options.UseSqlServer($"Server=localhost\\SQLEXPRESS;Database={DbName};Trusted_Connection=True;TrustServerCertificate=True;");
     }
 }
