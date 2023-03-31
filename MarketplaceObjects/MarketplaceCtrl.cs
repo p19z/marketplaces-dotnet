@@ -50,7 +50,7 @@ namespace MarketplaceObjects
                     .ThenInclude(x => x.Category)
                 .Include(x => x.Orders)
                     .ThenInclude(x => x.Offer)
-                        .ThenInclude(x => x.Category)
+                        .ThenInclude(x => x!.Category) // warning CS8602: Dereference of a possibly null reference.
                 .Where(u => u.UserId == userId)
                 .FirstOrDefault();
         }

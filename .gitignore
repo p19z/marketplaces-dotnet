@@ -6,3 +6,5 @@
 **/*.db-wal
 
 _0_InitDatabase.InitDatabase_v0.db
+
+**/*.csproj.user

@@ -1,4 +1,7 @@
-dotnet new console -o Marketplaces
+# dotnet new console -o Marketplaces # << Done by Visual Studio
+
+## %CD% %ProjectDirectory%
+(e.g. MarketplaceObjects)
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 - or - Tools > NuGet Package Manager > Package Manager Console
