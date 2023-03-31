@@ -2,7 +2,7 @@ set TESTNAME=_0x_InitDatabase.FillSQLiteDatabase_v0
 
 set OPTNNAME=hardcodedPopulateSQLite0x-0
 
-set project=MarketplaceSQLiteAdminCLI
+set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0
 set exe=..\..\%project%\%bin%\%project%.exe
 set cmd=%exe% %OPTNNAME%
