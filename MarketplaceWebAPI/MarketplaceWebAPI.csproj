@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MarketplaceObjects\MarketplaceObjects.csproj" />
+    <ProjectReference Include="..\MarketplaceObjects.SQLite\MarketplaceObjects.SQLite.csproj" />
   </ItemGroup>
 
 </Project>

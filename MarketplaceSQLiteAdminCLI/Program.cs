@@ -11,6 +11,11 @@ if (args.Length > 0)
             Console.WriteLine("_0x_InitDatabase.InitSQLiteDatabase_v0!");
             _0_InitDatabase.FillSQLiteDatabase_v0();
         }
+        else if (arg == "hardcodedPopulateSqlServer0x-0")
+        {
+            Console.WriteLine("_0x_InitDatabase.InitSqlServerDatabase_v0!");
+            _0_InitDatabase.FillSqlServerDatabase_v0();
+        }
     }
 }
 else

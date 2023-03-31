@@ -4,17 +4,17 @@ namespace MarketplaceAdminCLI
 {
     internal static partial class _0_InitDatabase
     {
-        internal static void FillSQLiteDatabase_v0()
+        internal static void FillSqlServerDatabase_v0()
         {
-            using (var db = new MarketplaceSQLiteContext())
+            using (var db = new MarketplaceSqlServerContext())
             {
                 FillDb.FillDb_v0(db);
             }
         }
 
-        internal static void DeleteSQLiteMarketplace_v0()
+        internal static void DeleteSqlServerMarketplace_v0()
         {
-            using (var db = new MarketplaceSQLiteContext())
+            using (var db = new MarketplaceSqlServerContext())
             {
                 FillDb.DeleteMarketplace_v0(db);
             }

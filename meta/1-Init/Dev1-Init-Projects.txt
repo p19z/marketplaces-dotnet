@@ -18,3 +18,12 @@ Update-Database
 
 
 See Marketplaces\TestRuns\0x-0
+
+
+
+
+PART 2
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+See Marketplaces\TestRuns\0x-0b

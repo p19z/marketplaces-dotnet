@@ -16,7 +16,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceWebAPI", "Market
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceWebUI", "MarketplaceWebUI\MarketplaceWebUI.csproj", "{F1713254-FC00-4C21-A64D-1EF01A20E66F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects", "MarketplaceObjects\MarketplaceObjects.csproj", "{4226EFBA-F466-4CCC-A238-2AC4BCA95323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects", "MarketplaceObjects\MarketplaceObjects.csproj", "{4226EFBA-F466-4CCC-A238-2AC4BCA95323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects.SqlServer", "MarketplaceObjects.SqlExpress\MarketplaceObjects.SqlServer.csproj", "{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects.SQLite", "MarketplaceObjects.SQLite\MarketplaceObjects.SQLite.csproj", "{DBB6C136-DEEB-4976-B127-FDDC279571A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +44,14 @@ Global
 		{4226EFBA-F466-4CCC-A238-2AC4BCA95323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4226EFBA-F466-4CCC-A238-2AC4BCA95323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4226EFBA-F466-4CCC-A238-2AC4BCA95323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBB6C136-DEEB-4976-B127-FDDC279571A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB6C136-DEEB-4976-B127-FDDC279571A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB6C136-DEEB-4976-B127-FDDC279571A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB6C136-DEEB-4976-B127-FDDC279571A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

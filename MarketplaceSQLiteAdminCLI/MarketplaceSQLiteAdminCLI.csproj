@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MarketplaceObjects.SqlExpress\MarketplaceObjects.SqlServer.csproj" />
+    <ProjectReference Include="..\MarketplaceObjects.SQLite\MarketplaceObjects.SQLite.csproj" />
     <ProjectReference Include="..\MarketplaceObjects\MarketplaceObjects.csproj" />
   </ItemGroup>
 
