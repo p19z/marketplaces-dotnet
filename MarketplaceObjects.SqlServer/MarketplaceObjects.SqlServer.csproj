@@ -18,4 +18,8 @@
     <ProjectReference Include="..\MarketplaceObjects\MarketplaceObjects.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

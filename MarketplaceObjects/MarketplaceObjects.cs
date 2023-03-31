@@ -31,12 +31,12 @@ namespace MarketplaceObjects
         public byte[]? ChangeCheck { get; set; }
 
         [Required]
-        [ForeignKey("UserId")]
-        public User? Seller { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
 
         [Required]
-        [ForeignKey("CategoryId")]
-        public Category? Category { get; set; }
+        [ForeignKey("User")]
+        public int SellerId { get; set; }
 
         [Required]
         public string? Title { get; set; }
@@ -53,12 +53,12 @@ namespace MarketplaceObjects
         public byte[]? ChangeCheck { get; set; }
 
         [Required]
-        [ForeignKey("UserId")]
-        public User? Buyer { get; set; }
+        [ForeignKey("Offer")]
+        public int OfferId { get; set; }
 
         [Required]
-        [ForeignKey("OfferId")]
-        public Offer? Offer { get; set; }
+        [ForeignKey("User")]
+        public int BuyerId { get; set; }
 
         public DateTime? TimeSlot { get; set; }
     }

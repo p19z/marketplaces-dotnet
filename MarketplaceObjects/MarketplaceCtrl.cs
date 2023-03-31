@@ -47,10 +47,10 @@ namespace MarketplaceObjects
             //logger?.LogInformation($"[ctl] !!!GetUser( {userId} )!!!");
             return context.Users
                 .Include(x => x.Offers)
-                    .ThenInclude(x => x.Category)
+                    .ThenInclude(x => x.CategoryId) // TODO x.OrdersCount, x.Orders
                 .Include(x => x.Orders)
-                    .ThenInclude(x => x.Offer)
-                        .ThenInclude(x => x!.Category) // warning CS8602: Dereference of a possibly null reference.
+                    .ThenInclude(x => x.OfferId) // TODO x.Offers, x.OffersCount
+                        // .ThenInclude(x => x!.Category) // warning CS8602: Dereference of a possibly null reference.
                 .Where(u => u.UserId == userId)
                 .FirstOrDefault();
         }

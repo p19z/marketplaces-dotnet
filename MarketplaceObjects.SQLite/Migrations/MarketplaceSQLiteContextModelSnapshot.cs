@@ -75,16 +75,17 @@ namespace MarketplaceObjects.SQLite.Migrations
                     b.Property<string>("PostalCode")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("SellerId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("OfferId");
-
-                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -95,6 +96,9 @@ namespace MarketplaceObjects.SQLite.Migrations
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BuyerId")
                         .HasColumnType("INTEGER");
 
                     b.Property<byte[]>("ChangeCheck")
@@ -108,12 +112,10 @@ namespace MarketplaceObjects.SQLite.Migrations
                     b.Property<DateTime?>("TimeSlot")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("OrderId");
-
-                    b.HasIndex("OfferId");
 
                     b.HasIndex("UserId");
 
@@ -157,40 +159,16 @@ namespace MarketplaceObjects.SQLite.Migrations
 
             modelBuilder.Entity("MarketplaceObjects.Offer", b =>
                 {
-                    b.HasOne("MarketplaceObjects.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MarketplaceObjects.User", "Seller")
+                    b.HasOne("MarketplaceObjects.User", null)
                         .WithMany("Offers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Seller");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Order", b =>
                 {
-                    b.HasOne("MarketplaceObjects.Offer", "Offer")
-                        .WithMany()
-                        .HasForeignKey("OfferId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MarketplaceObjects.User", "Buyer")
+                    b.HasOne("MarketplaceObjects.User", null)
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Buyer");
-
-                    b.Navigation("Offer");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Marketplace", b =>
