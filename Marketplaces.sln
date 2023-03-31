@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceWebUI", "Marketp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects", "MarketplaceObjects\MarketplaceObjects.csproj", "{4226EFBA-F466-4CCC-A238-2AC4BCA95323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects.SqlServer", "MarketplaceObjects.SqlExpress\MarketplaceObjects.SqlServer.csproj", "{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects.SqlServer", "MarketplaceObjects.SqlServer\MarketplaceObjects.SqlServer.csproj", "{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceObjects.SQLite", "MarketplaceObjects.SQLite\MarketplaceObjects.SQLite.csproj", "{DBB6C136-DEEB-4976-B127-FDDC279571A9}"
 EndProject

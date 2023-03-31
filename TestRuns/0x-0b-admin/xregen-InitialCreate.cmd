@@ -1,5 +1,6 @@
 pushd ..\..\MarketplaceObjects.SqlServer
-dotnet ef migrations add InitialSqlServerCreate --context MarketplaceSqlServerContext
+@rem --context MarketplaceSqlServerContext
+dotnet ef migrations add InitialSqlServerCreate
 popd
 
 @pause
