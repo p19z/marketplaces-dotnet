@@ -1,4 +1,4 @@
-set TESTNAME=_0_InitDatabase.InitSQLiteDatabase_v0
+set TESTNAME=_0_InitialDatabase.InitSQLiteDatabase_v0
 
 pushd ..\..\MarketplaceObjects.SQLite
 dotnet ef database update --context MarketplaceSQLiteContext

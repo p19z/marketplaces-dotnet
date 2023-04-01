@@ -30,10 +30,9 @@ namespace MarketplaceObjects.SQLite.Migrations
                 {
                     UserId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ChangeCheck = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Password = table.Column<string>(type: "TEXT", nullable: false),
-                    Alias = table.Column<string>(type: "TEXT", nullable: true)
+                    Password = table.Column<string>(type: "TEXT", nullable: true),
+                    LastChangeTimestamp = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,9 +45,9 @@ namespace MarketplaceObjects.SQLite.Migrations
                 {
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    MarketplaceId = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    MarketplaceId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Description = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,7 +56,8 @@ namespace MarketplaceObjects.SQLite.Migrations
                         name: "FK_Categories_Marketplaces_MarketplaceId",
                         column: x => x.MarketplaceId,
                         principalTable: "Marketplaces",
-                        principalColumn: "MarketplaceId");
+                        principalColumn: "MarketplaceId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,13 +66,13 @@ namespace MarketplaceObjects.SQLite.Migrations
                 {
                     OfferId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ChangeCheck = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LastChangeTimestamp = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true),
                     SellerId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Content = table.Column<string>(type: "TEXT", nullable: true),
-                    PostalCode = table.Column<string>(type: "TEXT", nullable: true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Address_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,7 +81,8 @@ namespace MarketplaceObjects.SQLite.Migrations
                         name: "FK_Offers_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId");
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,11 +91,12 @@ namespace MarketplaceObjects.SQLite.Migrations
                 {
                     OrderId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ChangeCheck = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     OfferId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BuyerId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TimeSlot = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: true)
+                    OrderDetails_ReservationProposal_StartTime = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    OrderDetails_ReservationProposal_EndTime = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Status = table.Column<int>(type: "INTEGER", nullable: false),
+                    LastChangeTimestamp = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,7 +105,8 @@ namespace MarketplaceObjects.SQLite.Migrations
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId");
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

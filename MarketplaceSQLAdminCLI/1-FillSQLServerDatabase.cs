@@ -1,4 +1,5 @@
 ﻿using MarketplaceObjects;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketplaceAdminCLI
 {
@@ -8,15 +9,20 @@ namespace MarketplaceAdminCLI
         {
             using (var db = new MarketplaceSqlServerContext())
             {
-                FillDb.FillDb_v0(db);
+                FillDb.AddSampleData_S1E1v0(db);
+                FillDb.Create_AllObjectsCounts_View_S1E1v0(db);
             }
         }
-
+    }
+    internal static partial class _0_CleanDatabase
+    {
         internal static void DeleteSqlServerMarketplace_v0()
         {
             using (var db = new MarketplaceSqlServerContext())
             {
-                FillDb.DeleteMarketplace_v0(db);
+                CleanDb.DeleteFirstMarketplace_v0(db);
+                CleanDb.DeleteFirstUser_v0(db);
+                CleanDb.DeleteCustomViews_v0(db);
             }
         }
     }

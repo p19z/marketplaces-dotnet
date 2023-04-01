@@ -19,7 +19,7 @@
     <h3>Alias</h3>
     <p>
         @{
-            @Model.InspectedUser!.Alias
+            @Model.InspectedUserAlias
     }</p>
 
     <h2>Offers</h2>
@@ -40,7 +40,7 @@
                         @offer.CategoryId
                     </td>
                     <td>
-                        @offer.PostalCode
+                        @offer.Address!.PostalCode
                     </td>
                 </tr>
             </table>
@@ -67,7 +67,7 @@
                         @order.OfferId
                     </td>
                     <td>
-                        @order.TimeSlot
+                        @order.OrderDetails!.ReservationProposal!.StartTime
                     </td>
                 </tr>
             </table>

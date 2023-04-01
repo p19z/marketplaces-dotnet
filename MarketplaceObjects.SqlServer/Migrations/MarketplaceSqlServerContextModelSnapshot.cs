@@ -22,6 +22,33 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MarketplaceObjects.AllObjectsCount", b =>
+                {
+                    b.Property<int>("CategoriesCount")
+                        .HasColumnType("int")
+                        .HasColumnName("CategoriesCount");
+
+                    b.Property<int>("MarketplacesCount")
+                        .HasColumnType("int")
+                        .HasColumnName("MarketplacesCount");
+
+                    b.Property<int>("OffersCount")
+                        .HasColumnType("int")
+                        .HasColumnName("OffersCount");
+
+                    b.Property<int>("OrdersCount")
+                        .HasColumnType("int")
+                        .HasColumnName("OrdersCount");
+
+                    b.Property<int>("UsersCount")
+                        .HasColumnType("int")
+                        .HasColumnName("UsersCount");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("View_AllObjectsCounts", (string)null);
+                });
+
             modelBuilder.Entity("MarketplaceObjects.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -33,7 +60,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MarketplaceId")
+                    b.Property<int>("MarketplaceId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -75,16 +102,13 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<byte[]>("ChangeCheck")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostalCode")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("LastChangeTimestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("int");
@@ -93,7 +117,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("OfferId");
@@ -111,10 +135,7 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
-                    b.Property<int>("BuyerId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("ChangeCheck")
+                    b.Property<byte[]>("LastChangeTimestamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
@@ -122,10 +143,10 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     b.Property<int>("OfferId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("TimeSlot")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");
@@ -143,21 +164,16 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
-                    b.Property<string>("Alias")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("ChangeCheck")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("LastChangeTimestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
@@ -169,21 +185,83 @@ namespace MarketplaceObjects.SqlServer.Migrations
                 {
                     b.HasOne("MarketplaceObjects.Marketplace", null)
                         .WithMany("Categories")
-                        .HasForeignKey("MarketplaceId");
+                        .HasForeignKey("MarketplaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Offer", b =>
                 {
                     b.HasOne("MarketplaceObjects.User", null)
                         .WithMany("Offers")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("MarketplaceObjects.PostalAddress", "Address", b1 =>
+                        {
+                            b1.Property<int>("OfferId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("PostalCode")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("OfferId");
+
+                            b1.ToTable("Offers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OfferId");
+                        });
+
+                    b.Navigation("Address")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Order", b =>
                 {
                     b.HasOne("MarketplaceObjects.User", null)
                         .WithMany("Orders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("MarketplaceObjects.OrderDetails", "OrderDetails", b1 =>
+                        {
+                            b1.Property<int>("OrderId")
+                                .HasColumnType("int");
+
+                            b1.HasKey("OrderId");
+
+                            b1.ToTable("Orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderId");
+
+                            b1.OwnsOne("MarketplaceObjects.ReservationProposal", "ReservationProposal", b2 =>
+                                {
+                                    b2.Property<int>("OrderDetailsOrderId")
+                                        .HasColumnType("int");
+
+                                    b2.Property<DateTime>("EndTime")
+                                        .HasColumnType("datetime2");
+
+                                    b2.Property<DateTime>("StartTime")
+                                        .HasColumnType("datetime2");
+
+                                    b2.HasKey("OrderDetailsOrderId");
+
+                                    b2.ToTable("Orders");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("OrderDetailsOrderId");
+                                });
+
+                            b1.Navigation("ReservationProposal");
+                        });
+
+                    b.Navigation("OrderDetails")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MarketplaceObjects.Marketplace", b =>

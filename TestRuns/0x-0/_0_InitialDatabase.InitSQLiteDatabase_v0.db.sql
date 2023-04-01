@@ -9,14 +9,12 @@ CREATE TABLE IF NOT EXISTS "Marketplaces" (
     "MarketplaceId" INTEGER NOT NULL CONSTRAINT "PK_Marketplaces" PRIMARY KEY AUTOINCREMENT,
     "Title" TEXT NOT NULL
 );
-INSERT INTO Marketplaces VALUES(2,'Test-0b-0');
 CREATE TABLE IF NOT EXISTS "Users" (
     "UserId" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
     "Email" TEXT NOT NULL,
     "Password" TEXT NULL,
     "LastChangeTimestamp" BLOB NULL
 );
-INSERT INTO Users VALUES(3,'su','su',NULL);
 CREATE TABLE IF NOT EXISTS "Categories" (
     "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Categories" PRIMARY KEY AUTOINCREMENT,
     "MarketplaceId" INTEGER NOT NULL,
@@ -24,9 +22,6 @@ CREATE TABLE IF NOT EXISTS "Categories" (
     "Description" TEXT NULL,
     CONSTRAINT "FK_Categories_Marketplaces_MarketplaceId" FOREIGN KEY ("MarketplaceId") REFERENCES "Marketplaces" ("MarketplaceId") ON DELETE CASCADE
 );
-INSERT INTO Categories VALUES(4,2,'Cat. 1','First test category');
-INSERT INTO Categories VALUES(5,2,'Cat. 2','Second test category');
-INSERT INTO Categories VALUES(6,2,'Cat. 3','Third test category');
 CREATE TABLE IF NOT EXISTS "Offers" (
     "OfferId" INTEGER NOT NULL CONSTRAINT "PK_Offers" PRIMARY KEY AUTOINCREMENT,
     "UserId" INTEGER NOT NULL,
@@ -49,26 +44,7 @@ CREATE TABLE IF NOT EXISTS "Orders" (
     CONSTRAINT "FK_Orders_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId") ON DELETE CASCADE
 );
 DELETE FROM sqlite_sequence;
-INSERT INTO sqlite_sequence VALUES('Marketplaces',2);
-INSERT INTO sqlite_sequence VALUES('Users',3);
-INSERT INTO sqlite_sequence VALUES('Categories',6);
 CREATE INDEX "IX_Categories_MarketplaceId" ON "Categories" ("MarketplaceId");
 CREATE INDEX "IX_Offers_UserId" ON "Offers" ("UserId");
 CREATE INDEX "IX_Orders_UserId" ON "Orders" ("UserId");
-CREATE VIEW View_AllObjectsCounts AS
-                SELECT 'MarketplacesCount' as CounterName
-		                , Count(*) as CounterValue
-                                FROM Marketplaces UNION ALL
-                SELECT 'CategoriesCount' as CounterName
-		                , Count(*) as CounterValue
-                                FROM Categories UNION ALL
-                SELECT 'OffersCount' as CounterName
-		                , Count(*) as CounterValue
-                                FROM Offers UNION ALL
-                SELECT 'OrdersCount' as CounterName
-		                , Count(*) as CounterValue
-                                FROM Orders UNION ALL
-                SELECT 'UsersCount' as CounterName
-		                , Count(*) as CounterValue
-                                FROM Users;
 COMMIT;

@@ -1,4 +1,4 @@
-Argument=hardcodedPopulateSQLite0x-0
+Argument=populateSQLite0x-0
 _0x_InitDatabase.InitSQLiteDatabase_v0!
 Creating a super user
 Inserting a new marketplace

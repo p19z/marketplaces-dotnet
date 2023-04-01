@@ -10,3 +10,11 @@ DONE.
 
 
 Adding Razor Page for user and check retrieval of related objects.
+
+
+Create a database with images "hashed"
+
+Create the Offer and Order creation pages
+
+Create the Login pages
+

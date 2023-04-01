@@ -16,7 +16,7 @@ namespace MarketplaceWebUI.Pages
         {
             svcs = new MpSvcs(context, logger);
             InspectedUser = MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, 1);
-            InspectedUserAlias = InspectedUser!.Alias;
+            InspectedUserAlias = InspectedUser!.UserAlias;
             InspectedUserAlias = InspectedUserAlias ?? InspectedUser!.Email;
         }
 

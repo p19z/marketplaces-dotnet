@@ -11,39 +11,42 @@ CREATE TABLE IF NOT EXISTS "Marketplaces" (
 );
 CREATE TABLE IF NOT EXISTS "Users" (
     "UserId" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
-    "ChangeCheck" BLOB NULL,
     "Email" TEXT NOT NULL,
-    "Password" TEXT NOT NULL,
-    "Alias" TEXT NULL
+    "Password" TEXT NULL,
+    "LastChangeTimestamp" BLOB NULL
 );
 CREATE TABLE IF NOT EXISTS "Categories" (
     "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Categories" PRIMARY KEY AUTOINCREMENT,
+    "MarketplaceId" INTEGER NOT NULL,
     "Name" TEXT NOT NULL,
     "Description" TEXT NULL,
-    "MarketplaceId" INTEGER NULL,
-    CONSTRAINT "FK_Categories_Marketplaces_MarketplaceId" FOREIGN KEY ("MarketplaceId") REFERENCES "Marketplaces" ("MarketplaceId")
+    CONSTRAINT "FK_Categories_Marketplaces_MarketplaceId" FOREIGN KEY ("MarketplaceId") REFERENCES "Marketplaces" ("MarketplaceId") ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS "Offers" (
     "OfferId" INTEGER NOT NULL CONSTRAINT "PK_Offers" PRIMARY KEY AUTOINCREMENT,
-    "ChangeCheck" BLOB NULL,
+    "UserId" INTEGER NOT NULL,
     "CategoryId" INTEGER NOT NULL,
+    "LastChangeTimestamp" BLOB NULL,
     "SellerId" INTEGER NOT NULL,
     "Title" TEXT NOT NULL,
     "Content" TEXT NULL,
-    "PostalCode" TEXT NULL,
-    "UserId" INTEGER NULL,
-    CONSTRAINT "FK_Offers_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId")
+    "Address_PostalCode" TEXT NULL,
+    CONSTRAINT "FK_Offers_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId") ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS "Orders" (
     "OrderId" INTEGER NOT NULL CONSTRAINT "PK_Orders" PRIMARY KEY AUTOINCREMENT,
-    "ChangeCheck" BLOB NULL,
+    "UserId" INTEGER NOT NULL,
     "OfferId" INTEGER NOT NULL,
-    "BuyerId" INTEGER NOT NULL,
-    "TimeSlot" TEXT NULL,
-    "UserId" INTEGER NULL,
-    CONSTRAINT "FK_Orders_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId")
+    "OrderDetails_ReservationProposal_StartTime" TEXT NULL,
+    "OrderDetails_ReservationProposal_EndTime" TEXT NULL,
+    "Status" INTEGER NOT NULL,
+    "LastChangeTimestamp" BLOB NULL,
+    CONSTRAINT "FK_Orders_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("UserId") ON DELETE CASCADE
 );
 DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('Marketplaces',2);
+INSERT INTO sqlite_sequence VALUES('Users',3);
+INSERT INTO sqlite_sequence VALUES('Categories',6);
 CREATE INDEX "IX_Categories_MarketplaceId" ON "Categories" ("MarketplaceId");
 CREATE INDEX "IX_Offers_UserId" ON "Offers" ("UserId");
 CREATE INDEX "IX_Orders_UserId" ON "Orders" ("UserId");

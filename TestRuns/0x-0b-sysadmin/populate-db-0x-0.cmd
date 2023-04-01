@@ -1,6 +1,4 @@
-set TESTNAME=_0x_InitDatabase.FillSqlServerDatabase_v0
-
-set OPTNNAME=hardcodedPopulateSqlServer0x-0
+set OPTNNAME=populateSqlServer0x-0
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

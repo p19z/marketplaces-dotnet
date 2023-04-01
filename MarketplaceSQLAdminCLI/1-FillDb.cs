@@ -1,17 +1,18 @@
 ﻿using MarketplaceObjects;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketplaceAdminCLI
 {
     internal static class FillDb
     {
-        internal static void FillDb_v0(MarketplaceSQLContext db)
+        internal static void AddSampleData_S1E1v0(MarketplaceSQLContext db)
         {
             // Note: This sample requires the database to be created before running.
             // Console.WriteLine($"Database path: {db.DbPath}."); // f/ SQLite
 
             // Create
             Console.WriteLine("Creating a super user");
-            db.Add(new User { Email = "su", Password = "su", Alias = "SuperUser" });
+            db.Add(new User { Email = "su", Password = "su", UserAlias = "SuperUser" });
 
             // Create
             // Repeating db.SaveChanges(); for determinism. Prly not most efficient.
@@ -42,19 +43,34 @@ namespace MarketplaceAdminCLI
             db.SaveChanges();
 
         }
-        internal static void DeleteMarketplace_v0(MarketplaceSQLContext db) // UNTESTED
+        internal static void Create_AllObjectsCounts_View_S1E1v0(MarketplaceSQLContext db)
         {
-            // Read
-            Console.WriteLine("Querying for first marketplace");
-            // TODO: Query for the categories too?
-            var marketplaces = db.Marketplaces
-                .OrderBy(m => m.MarketplaceId);
-            var marketplace = marketplaces.First();
+            // Note: This sample requires the database to be created before running.
+            // Console.WriteLine($"Database path: {db.DbPath}."); // f/ SQLite
 
-            // Delete
-            Console.WriteLine("Delete the marketplace");
-            db.Remove(marketplace);
-            db.SaveChanges();
+            //db.Database.ExecuteSqlRaw(
+            //    @"CREATE VIEW View_BlogPostCounts AS
+            //    SELECT b.Name, Count(p.PostId) as PostCount
+            //    FROM Blogs b
+            //    JOIN Posts p on p.BlogId = b.BlogId
+            //    GROUP BY b.Name");
+            db.Database.ExecuteSqlRaw(
+                @"CREATE VIEW View_AllObjectsCounts AS
+                SELECT 'MarketplacesCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Marketplaces UNION ALL
+                SELECT 'CategoriesCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Categories UNION ALL
+                SELECT 'OffersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Offers UNION ALL
+                SELECT 'OrdersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Orders UNION ALL
+                SELECT 'UsersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Users");
         }
     }
 }
