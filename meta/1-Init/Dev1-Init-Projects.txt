@@ -1,12 +1,28 @@
-# dotnet new console -o Marketplaces # << Done by Visual Studio
+PART 1
 
-## %CD% %ProjectDirectory%
-(e.g. MarketplaceObjects)
+# dotnet new console -o MarketplaceSQLAdminCLI # << Done by Visual Studio
 
+
+
+PART 2
+
+cd MarketplaceObjects
+dotnet add package Microsoft.EntityFrameworkCore
+
+
+
+PART 3
+
+cd MarketplaceObjects.SQLite
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 - or - Tools > NuGet Package Manager > Package Manager Console
 Install-Package Microsoft.EntityFrameworkCore.Sqlite
 
+
+
+PART 4
+
+cd MarketplaceObjects.SQLite
 dotnet tool install --global dotnet-ef
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet ef migrations add InitialCreate
@@ -16,14 +32,21 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 Add-Migration InitialCreate
 Update-Database
 
-
-See Marketplaces\TestRuns\0x-0
-
+=> See Marketplaces\TestRuns\0x-0
 
 
 
-PART 2
+PART 5
 
+cd MarketplaceObjects.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
-See Marketplaces\TestRuns\0x-0b
++ Microsoft.EntityFrameworkCore.Tools
+
+
+
+
+PART 6
+
+cd MarketplaceObjects
+dotnet add package Microsoft.EntityFrameworkCore.Relational
