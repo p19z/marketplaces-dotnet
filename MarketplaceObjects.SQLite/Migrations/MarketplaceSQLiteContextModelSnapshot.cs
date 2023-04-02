@@ -20,24 +20,19 @@ namespace MarketplaceObjects.Sqlite.Migrations
             modelBuilder.Entity("MarketplaceObjects.AllObjectsCount", b =>
                 {
                     b.Property<int>("CategoriesCount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("CategoriesCount");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("MarketplacesCount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("MarketplacesCount");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("OffersCount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("OffersCount");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("OrdersCount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("OrdersCount");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("UsersCount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("UsersCount");
+                        .HasColumnType("INTEGER");
 
                     b.ToTable((string)null);
 

@@ -1,0 +1,24 @@
+Argument=deleteSqliteContent0x-0
+_0x_CleanDatabase.DeleteSqliteMarketplace_v0!
+Querying for first marketplace
+Delete the marketplace 1 from the database
+Save changes
+Test runtime object marketplace.Title:
+Test-0b-0
+Querying for first user
+Delete the user 1 from the database
+Save changes
+
+Argument=deleteSqliteContent0x-0
+_0x_CleanDatabase.DeleteSqliteMarketplace_v0!
+Querying for first marketplace
+No marketplaces left. Nothing to delete.
+Querying for first user
+No users left. Nothing to delete.
+
+Argument=deleteSqliteContent0x-0
+_0x_CleanDatabase.DeleteSqliteMarketplace_v0!
+Querying for first marketplace
+No marketplaces left. Nothing to delete.
+Querying for first user
+No users left. Nothing to delete.

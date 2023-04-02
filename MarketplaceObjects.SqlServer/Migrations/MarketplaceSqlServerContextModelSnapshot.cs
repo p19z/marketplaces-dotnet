@@ -25,24 +25,19 @@ namespace MarketplaceObjects.SqlServer.Migrations
             modelBuilder.Entity("MarketplaceObjects.AllObjectsCount", b =>
                 {
                     b.Property<int>("CategoriesCount")
-                        .HasColumnType("int")
-                        .HasColumnName("CategoriesCount");
+                        .HasColumnType("int");
 
                     b.Property<int>("MarketplacesCount")
-                        .HasColumnType("int")
-                        .HasColumnName("MarketplacesCount");
+                        .HasColumnType("int");
 
                     b.Property<int>("OffersCount")
-                        .HasColumnType("int")
-                        .HasColumnName("OffersCount");
+                        .HasColumnType("int");
 
                     b.Property<int>("OrdersCount")
-                        .HasColumnType("int")
-                        .HasColumnName("OrdersCount");
+                        .HasColumnType("int");
 
                     b.Property<int>("UsersCount")
-                        .HasColumnType("int")
-                        .HasColumnName("UsersCount");
+                        .HasColumnType("int");
 
                     b.ToTable((string)null);
 
