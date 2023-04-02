@@ -1,5 +1,6 @@
 using MarketplaceObjects;
 using MarketplaceSvcTools;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,18 @@ builder.Logging.AddSimpleConsole(ConsoleConf.FormatOptns_v0);
 //    options => options.UseSqlite($"Data Source={MarketplaceContext.GetDbPath()}"));
 builder.Services.AddDbContext<MarketplaceDbCtx>();
 
-builder.Services.AddControllers();
+
+// HttpNoContent on return null or return new EmptyResponse()
+// https://weblog.west-wind.com/posts/2020/Feb/24/Null-API-Responses-and-HTTP-204-Results-in-ASPNET-Core
+
+builder.Services.AddControllers(opt =>  // or AddMvc()
+{
+    // remove formatter that turns nulls into 204 - No Content responses
+    // this formatter breaks Angular's Http response JSON parsing
+    opt.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
+});
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

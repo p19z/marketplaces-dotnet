@@ -5,7 +5,8 @@ namespace MarketplaceWebUI.Pages
 {
     public class MarketplaceModel : PageModel
     {
-        public readonly Marketplace Marketplace;
+        public readonly string Title;
+        public readonly ICollection<Category> Categories;
 
         private readonly MpSvcs svcs;
         public MarketplaceModel(
@@ -14,7 +15,21 @@ namespace MarketplaceWebUI.Pages
             )
         {
             svcs = new MpSvcs(context, logger);
-            Marketplace = MarketplaceCtrl.GetMarketplace(svcs);
+            var mp = MarketplaceCtrl.GetMarketplace(svcs);
+
+            if (mp != null)
+            {
+                // Title
+                if (mp.Title != null) Title = mp.Title;
+                else Title = "";
+
+                Categories = mp.Categories;
+            }
+            else
+            {
+                Title = "(no known marketplace atm)";
+                Categories = new List<Category>();
+            }
         }
 
         public void OnGet()

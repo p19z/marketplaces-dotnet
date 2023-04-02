@@ -21,7 +21,8 @@ namespace MarketplaceWebAPI.Controllers
         public Marketplace Get()
         {
             svcs.logger.LogInformation("WebAPI: Marketplace Get()");
-            return MarketplaceCtrl.GetMarketplace(svcs);
+            var mp = MarketplaceCtrl.GetMarketplace(svcs);
+            return mp!; // HttpNoContent
         }
     }
 }

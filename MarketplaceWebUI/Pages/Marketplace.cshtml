@@ -10,7 +10,7 @@
     <p>Ipsum, etc.</p>
 
     <p>@{
-            @Model.Marketplace.Title
+            @Model.Title
     }</p>
 
     <table>
@@ -19,7 +19,7 @@
             <th>Description</th>
         </tr>
         @{
-            @foreach (var cat in @Model.Marketplace.Categories)
+            @foreach (var cat in @Model.Categories)
             {
                 <tr>
                     <td>

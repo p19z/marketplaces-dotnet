@@ -17,13 +17,13 @@ namespace MarketplaceObjects
         }
         */
 
-        public static Marketplace GetMarketplace(MpSvcs svcs)
+        public static Marketplace? GetMarketplace(MpSvcs svcs)
         {
             svcs.logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
             return svcs.context.Marketplaces
                 .Include(x => x.Categories)
                 .OrderBy(m => m.MarketplaceId)
-                .First();
+                .FirstOrDefault();
         }
 
         public static List<RowsCounter> GetStatisticsV0(MpSvcs svcs)
