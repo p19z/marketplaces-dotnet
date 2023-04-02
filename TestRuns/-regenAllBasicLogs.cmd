@@ -13,6 +13,7 @@
 	del *_v0.db.sql
 	call _delete-db-file.cmd /NOPAUSE
 	call create-ex-nihilo.cmd /NOPAUSE
+	call initialize-db-0x-0.cmd /NOPAUSE
 	call populate-db-0x-0.cmd /NOPAUSE
 	call xdelete-db-content.cmd /NOPAUSE
 @popd

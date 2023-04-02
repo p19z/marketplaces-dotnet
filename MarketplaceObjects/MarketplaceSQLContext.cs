@@ -11,18 +11,19 @@ namespace MarketplaceObjects
         public DbSet<Offer> Offers { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        // Views
+        public DbSet<RowsCounter> AllObjectsCounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Entity<AllObjectsCount>(
+                .Entity<RowsCounter>(
                     eb =>
                     {
                         eb.HasNoKey();
                         eb.ToView("View_AllObjectsCounts");
-                        // TODO: Anything else here?
-                        //eb.Property(v => v).HasColumnName("CounterName");
-                        //eb.Property(v => v.UsersCount).HasColumnName("UsersCount");
+                        eb.Property(v => v.CounterName).HasColumnName("CounterName");
+                        eb.Property(v => v.CounterValue).HasColumnName("CounterValue");
                     });
         }
     }

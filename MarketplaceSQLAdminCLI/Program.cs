@@ -7,6 +7,20 @@ if (args.Length > 0)
     {
         Console.WriteLine($"Argument={arg}");
         switch (arg) {
+
+            case "coreSqliteInit":
+                _0_InitDatabase.CoreSqliteDatabase_v0();
+                break;
+            case "coreSqlServerInit":
+                _0_InitDatabase.CoreSqlServerDatabase_v0();
+                break;
+            case "coreSqliteDelete":
+                _0_CleanDatabase.DeleteSqliteCore_v0();
+                break;
+            case "coreSqlServerDelete":
+                _0_CleanDatabase.DeleteSqlServerCore_v0();
+                break;
+
             case "populateSqlite0x-0":
                 Console.WriteLine("_0x_InitDatabase.InitSqliteDatabase_v0!");
                 _0_InitDatabase.FillSqliteDatabase_v0();
@@ -22,6 +36,11 @@ if (args.Length > 0)
             case "deleteSqlServerContent0x-0":
                 Console.WriteLine("_0x_CleanDatabase.DeleteSqlServerMarketplace_v0!");
                 _0_CleanDatabase.DeleteSqlServerMarketplace_v0();
+                break;
+
+            case "stats":
+            case "query":
+                QueryDb.PrintCountersToConsole();
                 break;
         }
     }

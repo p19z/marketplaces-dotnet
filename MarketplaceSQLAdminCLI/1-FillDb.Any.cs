@@ -43,7 +43,7 @@ namespace MarketplaceSQLAdminCLI
             db.SaveChanges();
 
         }
-        internal static void Create_AllObjectsCounts_View_S1E1v0(MarketplaceSQLContext db)
+        internal static void CreateCustomViews_v0(MarketplaceSQLContext db)
         {
             // Note: This sample requires the database to be created before running.
             // Console.WriteLine($"Database path: {db.DbPath}."); // f/ Sqlite

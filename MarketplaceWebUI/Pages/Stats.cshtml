@@ -1,0 +1,35 @@
+﻿@page
+@model MarketplaceWebUI.Pages.StatsModel
+@using MarketplaceObjects
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Statistics</h1>
+    <p>Ipsum, etc.</p>
+
+    <p>@{
+            @Model.Title
+    }</p>
+
+    <table>
+        <tr>
+            <th>Table</th>
+            <th>Count</th>
+        </tr>
+        @{
+            @foreach(var c in @Model.Counters)
+            {
+                <tr>
+                    <td>
+                        @c.CounterName
+                    </td>
+                    <td>
+                        @c.CounterValue
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

@@ -50,4 +50,20 @@ INSERT INTO sqlite_sequence VALUES('Categories',3);
 CREATE INDEX "IX_Categories_MarketplaceId" ON "Categories" ("MarketplaceId");
 CREATE INDEX "IX_Offers_UserId" ON "Offers" ("UserId");
 CREATE INDEX "IX_Orders_UserId" ON "Orders" ("UserId");
+CREATE VIEW View_AllObjectsCounts AS
+                SELECT 'MarketplacesCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Marketplaces UNION ALL
+                SELECT 'CategoriesCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Categories UNION ALL
+                SELECT 'OffersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Offers UNION ALL
+                SELECT 'OrdersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Orders UNION ALL
+                SELECT 'UsersCount' as CounterName
+		                , Count(*) as CounterValue
+                                FROM Users;
 COMMIT;

@@ -25,28 +25,6 @@ namespace MarketplaceObjects.SqlServer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MarketplaceObjects.AllObjectsCount", b =>
-                {
-                    b.Property<int>("CategoriesCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MarketplacesCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OffersCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrdersCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersCount")
-                        .HasColumnType("int");
-
-                    b.ToTable((string)null);
-
-                    b.ToView("View_AllObjectsCounts", (string)null);
-                });
-
             modelBuilder.Entity("MarketplaceObjects.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -152,6 +130,21 @@ namespace MarketplaceObjects.SqlServer.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("MarketplaceObjects.RowsCounter", b =>
+                {
+                    b.Property<string>("CounterName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CounterName");
+
+                    b.Property<int>("CounterValue")
+                        .HasColumnType("int")
+                        .HasColumnName("CounterValue");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("View_AllObjectsCounts", (string)null);
                 });
 
             modelBuilder.Entity("MarketplaceObjects.User", b =>

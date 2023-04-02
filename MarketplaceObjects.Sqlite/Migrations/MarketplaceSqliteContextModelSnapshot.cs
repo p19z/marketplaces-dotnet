@@ -17,28 +17,6 @@ namespace MarketplaceObjects.Sqlite.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("MarketplaceObjects.AllObjectsCount", b =>
-                {
-                    b.Property<int>("CategoriesCount")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MarketplacesCount")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OffersCount")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OrdersCount")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UsersCount")
-                        .HasColumnType("INTEGER");
-
-                    b.ToTable((string)null);
-
-                    b.ToView("View_AllObjectsCounts", (string)null);
-                });
-
             modelBuilder.Entity("MarketplaceObjects.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -136,6 +114,21 @@ namespace MarketplaceObjects.Sqlite.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("MarketplaceObjects.RowsCounter", b =>
+                {
+                    b.Property<string>("CounterName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("CounterName");
+
+                    b.Property<int>("CounterValue")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("CounterValue");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("View_AllObjectsCounts", (string)null);
                 });
 
             modelBuilder.Entity("MarketplaceObjects.User", b =>

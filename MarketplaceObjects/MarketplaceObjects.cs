@@ -5,6 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MarketplaceObjects
 {
     [Keyless]
+    public class RowsCounter
+    {
+        public string? CounterName { get; set; }
+        public int CounterValue { get; set; }
+    }
+
+    /*
+    [Keyless]
     public class AllObjectsCount
     {
         public int MarketplacesCount { get; set; }
@@ -12,7 +20,9 @@ namespace MarketplaceObjects
         public int OffersCount { get; set; }
         public int OrdersCount { get; set; }
         public int UsersCount { get; set; }
+        * /
     }
+    */
 
     public class Marketplace
     {
