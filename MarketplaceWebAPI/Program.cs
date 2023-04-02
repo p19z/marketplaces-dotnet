@@ -1,18 +1,20 @@
 using MarketplaceObjects;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
+using MarketplaceSvcTools;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Logging.ClearProviders();
-//builder.Logging.AddConsole(); // <=> AddSimpleConsole()
+// builder.Logging.AddConsole(); // NOT <=> AddSimpleConsole()
+builder.Logging.AddSimpleConsole(ConsoleConf.FormatOptns_v0);
+
 // var formatOptns = new SimpleConsoleFormatterOptions() { SingleLine = true };
 // builder.Logging.AddSimpleConsole(Action<SimpleConsoleFormatterOptions>);
-// OK: builder.Logging.AddSystemdConsole(); // (ConsoleFormatterNames.Systemd);
-builder.Logging.AddJsonConsole(); // (ConsoleFormatterNames.Json);
-//builder.Logging.AddDebug();
+
+// builder.Logging.AddJsonConsole(); // (ConsoleFormatterNames.Json);
+// {"EventId":14,"LogLevel":"Information","Category":"Microsoft.Hosting.Lifetime","Message":"Now listening on: https://localhost:7052","State":{"Message":"Now listening on: https://localhost:7052","address":"https://localhost:7052","{OriginalFormat}":"Now listening on: {address}"}}
+
+//builder.Logging.AddDebug(); // What is this for?
 // builder.Logging.
 
 // REF 230329-1

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MarketplaceCtrl\MarketplaceCtrl.csproj" />
+    <ProjectReference Include="..\MarketplaceSvcTools\MarketplaceSvcTools.csproj" />
   </ItemGroup>
 
 </Project>

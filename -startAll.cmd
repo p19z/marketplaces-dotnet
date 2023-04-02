@@ -1,8 +1,7 @@
 @set bin=bin\Debug\net6.0
 
 @call :Start-Services
-@goto lblEndRun
-@pause
+@rem This will run forever...
 @exit /b
 
 :Start-Services
