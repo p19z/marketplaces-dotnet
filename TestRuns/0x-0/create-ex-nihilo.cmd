@@ -1,7 +1,7 @@
-set TESTNAME=_0_InitialDatabase.InitSQLiteDatabase_v0
+set TESTNAME=_0_InitialDatabase.InitSqliteDatabase_v0
 
-pushd ..\..\MarketplaceObjects.SQLite
-dotnet ef database update --context MarketplaceSQLiteContext
+pushd ..\..\MarketplaceObjects.Sqlite
+dotnet ef database update --context MarketplaceSqliteContext
 popd
 
 copy /y %LocalAppData%\marketplaces.db .\%TESTNAME%.db

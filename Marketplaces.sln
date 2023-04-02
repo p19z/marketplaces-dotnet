@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects", "Marke
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects.SqlServer", "MarketplaceObjects.SqlServer\MarketplaceObjects.SqlServer.csproj", "{7D6FB07C-9AB6-43C3-A7DB-575901A731A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects.SQLite", "MarketplaceObjects.SQLite\MarketplaceObjects.SQLite.csproj", "{DBB6C136-DEEB-4976-B127-FDDC279571A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceObjects.Sqlite", "MarketplaceObjects.Sqlite\MarketplaceObjects.Sqlite.csproj", "{DBB6C136-DEEB-4976-B127-FDDC279571A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceCtrl", "MarketplaceCtrl\MarketplaceCtrl.csproj", "{94358AD6-2770-4D38-A7B7-E7CE0CA720BB}"
 EndProject
@@ -29,22 +29,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0x-0", "0x-0", "{6E5B37AF-5C20-4800-8E72-8688CBFFE87B}"
 	ProjectSection(SolutionItems) = preProject
 		TestRuns\0x-0\create-ex-nihilo.cmd = TestRuns\0x-0\create-ex-nihilo.cmd
-		TestRuns\0x-0\reinstall-from-dump.cmd = TestRuns\0x-0\reinstall-from-dump.cmd
 		TestRuns\0x-0\populate-db-0x-0.cmd = TestRuns\0x-0\populate-db-0x-0.cmd
-		TestRuns\0x-0\xdelete-db-content.cmd = TestRuns\0x-0\xdelete-db-content.cmd
-		TestRuns\0x-0\_0x_InitDatabase.FillSQLiteDatabase_v0.db.sql = TestRuns\0x-0\_0x_InitDatabase.FillSQLiteDatabase_v0.db.sql
-		TestRuns\0x-0\_0x_InitDatabase.FillSQLiteDatabase_v0.log = TestRuns\0x-0\_0x_InitDatabase.FillSQLiteDatabase_v0.log
-		TestRuns\0x-0\_0_CleanedDatabase.DeletedContent_v0.db.sql = TestRuns\0x-0\_0_CleanedDatabase.DeletedContent_v0.db.sql
-		TestRuns\0x-0\_0_InitialDatabase.InitSQLiteDatabase_v0.db.sql = TestRuns\0x-0\_0_InitialDatabase.InitSQLiteDatabase_v0.db.sql
-		TestRuns\0x-0\_delete-db-file.cmd = TestRuns\0x-0\_delete-db-file.cmd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0x-0b-sysadmin", "0x-0b-sysadmin", "{8D228C5E-04B4-4FCE-B5B3-F4985D7CF2A9}"
 	ProjectSection(SolutionItems) = preProject
 		TestRuns\0x-0b-sysadmin\create-ex-nihilo.cmd = TestRuns\0x-0b-sysadmin\create-ex-nihilo.cmd
 		TestRuns\0x-0b-sysadmin\populate-db-0x-0.cmd = TestRuns\0x-0b-sysadmin\populate-db-0x-0.cmd
-		TestRuns\0x-0b-sysadmin\SQLQuery1.sql = TestRuns\0x-0b-sysadmin\SQLQuery1.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceSvcTools", "MarketplaceSvcTools\MarketplaceSvcTools.csproj", "{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +74,10 @@ Global
 		{94358AD6-2770-4D38-A7B7-E7CE0CA720BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94358AD6-2770-4D38-A7B7-E7CE0CA720BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94358AD6-2770-4D38-A7B7-E7CE0CA720BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

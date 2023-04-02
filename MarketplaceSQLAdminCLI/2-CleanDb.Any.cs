@@ -1,7 +1,7 @@
 ﻿using MarketplaceObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketplaceAdminCLI
+namespace MarketplaceSQLAdminCLI
 {
     internal static class CleanDb
     {

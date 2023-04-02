@@ -1,14 +1,14 @@
 ﻿using MarketplaceObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketplaceAdminCLI
+namespace MarketplaceSQLAdminCLI
 {
     internal static class FillDb
     {
         internal static void AddSampleData_S1E1v0(MarketplaceSQLContext db)
         {
             // Note: This sample requires the database to be created before running.
-            // Console.WriteLine($"Database path: {db.DbPath}."); // f/ SQLite
+            // Console.WriteLine($"Database path: {db.DbPath}."); // f/ Sqlite
 
             // Create
             Console.WriteLine("Creating a super user");
@@ -46,7 +46,7 @@ namespace MarketplaceAdminCLI
         internal static void Create_AllObjectsCounts_View_S1E1v0(MarketplaceSQLContext db)
         {
             // Note: This sample requires the database to be created before running.
-            // Console.WriteLine($"Database path: {db.DbPath}."); // f/ SQLite
+            // Console.WriteLine($"Database path: {db.DbPath}."); // f/ Sqlite
 
             //db.Database.ExecuteSqlRaw(
             //    @"CREATE VIEW View_BlogPostCounts AS

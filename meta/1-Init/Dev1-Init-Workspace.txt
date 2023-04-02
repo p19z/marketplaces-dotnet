@@ -16,3 +16,8 @@ https://stackoverflow.com/q/17127351/
 introducing-foreign-key-constraint-may-cause-cycles-or-multiple-cascade-paths
 
 > Because Xxx is required, all one-to-many relationships where Xxx is involved will have cascading delete enabled by default.
+
+
+
+SQLite -> Sqlite (1)
+git config core.ignorecase false

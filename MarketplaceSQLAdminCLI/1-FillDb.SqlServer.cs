@@ -1,13 +1,13 @@
 ﻿using MarketplaceObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketplaceAdminCLI
+namespace MarketplaceSQLAdminCLI
 {
     internal static partial class _0_InitDatabase
     {
-        internal static void FillSQLiteDatabase_v0()
+        internal static void FillSqlServerDatabase_v0()
         {
-            using (var db = new MarketplaceSQLiteContext())
+            using (var db = new MarketplaceSqlServerContext())
             {
                 FillDb.AddSampleData_S1E1v0(db);
                 FillDb.Create_AllObjectsCounts_View_S1E1v0(db);
@@ -16,9 +16,9 @@ namespace MarketplaceAdminCLI
     }
     internal static partial class _0_CleanDatabase
     {
-        internal static void DeleteSQLiteMarketplace_v0()
+        internal static void DeleteSqlServerMarketplace_v0()
         {
-            using (var db = new MarketplaceSQLiteContext())
+            using (var db = new MarketplaceSqlServerContext())
             {
                 CleanDb.DeleteFirstMarketplace_v0(db);
                 CleanDb.DeleteFirstUser_v0(db);

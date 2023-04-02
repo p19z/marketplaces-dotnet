@@ -1,12 +1,19 @@
 using MarketplaceObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+//builder.Logging.AddConsole(); // <=> AddSimpleConsole()
+// var formatOptns = new SimpleConsoleFormatterOptions() { SingleLine = true };
+// builder.Logging.AddSimpleConsole(Action<SimpleConsoleFormatterOptions>);
+// OK: builder.Logging.AddSystemdConsole(); // (ConsoleFormatterNames.Systemd);
+builder.Logging.AddJsonConsole(); // (ConsoleFormatterNames.Json);
 //builder.Logging.AddDebug();
+// builder.Logging.
 
 // REF 230329-1
 // Unhandled exception. System.ArgumentException: 'AddDbContext' was called with configuration,

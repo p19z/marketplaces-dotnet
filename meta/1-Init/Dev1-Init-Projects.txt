@@ -13,7 +13,7 @@ dotnet add package Microsoft.EntityFrameworkCore
 
 PART 3
 
-cd MarketplaceObjects.SQLite
+cd MarketplaceObjects.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 - or - Tools > NuGet Package Manager > Package Manager Console
 Install-Package Microsoft.EntityFrameworkCore.Sqlite
@@ -22,7 +22,7 @@ Install-Package Microsoft.EntityFrameworkCore.Sqlite
 
 PART 4
 
-cd MarketplaceObjects.SQLite
+cd MarketplaceObjects.Sqlite
 dotnet tool install --global dotnet-ef
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet ef migrations add InitialCreate
