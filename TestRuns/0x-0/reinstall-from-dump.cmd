@@ -5,4 +5,4 @@
 
 sqlite3 %LocalAppData%\marketplaces.db < .\%TESTNAME%.db.sql
 
-@pause
+@if "%~1"=="" @pause

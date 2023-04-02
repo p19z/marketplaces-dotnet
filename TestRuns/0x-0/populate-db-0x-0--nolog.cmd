@@ -6,7 +6,5 @@ set exe=..\..\%project%\%bin%\%project%.exe
 set cmd=%exe% %OPTNNAME%
 
 %cmd%
-@set errlvl=%ERRORLEVEL%
 
 @if "%~1"=="" @pause
-@exit /b %errlvl%

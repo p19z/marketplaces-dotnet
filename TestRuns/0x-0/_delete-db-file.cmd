@@ -1,2 +1,2 @@
 del %LocalAppData%\marketplaces.db
-@pause
+@if "%~1"=="" @pause

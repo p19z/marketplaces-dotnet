@@ -8,14 +8,18 @@ set exe=..\..\%project%\%bin%\%project%.exe
 set cmd=%exe% %OPTNNAME%
 
 2>&1 > %TESTNAME%.log %cmd%
+@timeout /t 1 >NUL
+
 2>&1 >> echo.
 2>&1 >> %TESTNAME%.log %cmd%
+@timeout /t 1 >NUL
+
 2>&1 >> echo.
 2>&1 >> %TESTNAME%.log %cmd%
-@rem ~ timeout /t 1 >NUL
+@timeout /t 1 >NUL
 
 copy /y %LocalAppData%\marketplaces.db .\%TESTNAME%.db
 sqlite3 .\%TESTNAME%.db .dump > .\%TESTNAME%.db.sql
 del .\%TESTNAME%.db
 
-@pause
+@if "%~1"=="" @pause

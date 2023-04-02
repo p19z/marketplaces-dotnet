@@ -7,4 +7,4 @@ set cmd=%exe% %OPTNNAME%
 
 %cmd%
 
-@pause
+@if "%~1"=="" @pause
