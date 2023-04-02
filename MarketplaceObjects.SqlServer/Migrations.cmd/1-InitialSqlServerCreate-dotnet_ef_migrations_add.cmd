@@ -1,15 +1,15 @@
-@set OLDTS=20230331164132
+@set OLDTS=20230331164142
 
 @pushd ..
 	@rem Delete the old autogen
 	@pushd Migrations
-	del %OLDTS%_InitialSqliteCreate.cs
-	del %OLDTS%_InitialSqliteCreate.Designer.cs
-	del MarketplaceSqliteContextModelSnapshot.cs
+	del %OLDTS%_InitialSqlServerCreate.cs
+	del %OLDTS%_InitialSqlServerCreate.Designer.cs
+	del MarketplaceSqlServerContextModelSnapshot.cs
 	@popd
 
 	@rem Autogen init and schema
-	dotnet ef migrations add InitialSqliteCreate --context MarketplaceSqliteContext
+	dotnet ef migrations add InitialSqlServerCreate --context MarketplaceSqlServerContext
 
 	@rem Restore the old timestamps
 	@pushd Migrations
@@ -26,9 +26,9 @@
 :processFilename
 	@set /a g_fileCounter+=1
 	@echo %g_fileCounter%: %1
-	@if %g_fileCounter%==1 (call :replaceInFile %1.Designer.cs %1 %OLDTS%_InitialSqliteCreate)
-	@if %g_fileCounter%==1 (rename %1.cs %OLDTS%_InitialSqliteCreate.cs)
-	@if %g_fileCounter%==2 (rename %1.cs %OLDTS%_InitialSqliteCreate.Designer.cs)
+	@if %g_fileCounter%==1 (call :replaceInFile %1.Designer.cs %1 %OLDTS%_InitialSqlServerCreate)
+	@if %g_fileCounter%==1 (rename %1.cs %OLDTS%_InitialSqlServerCreate.cs)
+	@if %g_fileCounter%==2 (rename %1.cs %OLDTS%_InitialSqlServerCreate.Designer.cs)
 @exit /b
 
 :replaceInFile
