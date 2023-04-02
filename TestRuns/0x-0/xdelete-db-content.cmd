@@ -7,14 +7,19 @@ set bin=bin\Debug\net6.0
 set exe=..\..\%project%\%bin%\%project%.exe
 set cmd=%exe% %OPTNNAME%
 
-2>&1 > %TESTNAME%.log %cmd%
+if exist %TESTNAME%.log del %TESTNAME%.log
+
+>> %TESTNAME%.log echo run-1
+>> %TESTNAME%.log %cmd%
 @timeout /t 1 >NUL
 
-2>&1 >> echo.
+>> %TESTNAME%.log echo;
+>> %TESTNAME%.log echo run-2
 2>&1 >> %TESTNAME%.log %cmd%
 @timeout /t 1 >NUL
 
-2>&1 >> echo.
+>> %TESTNAME%.log echo;
+>> %TESTNAME%.log echo run-3
 2>&1 >> %TESTNAME%.log %cmd%
 @timeout /t 1 >NUL
 

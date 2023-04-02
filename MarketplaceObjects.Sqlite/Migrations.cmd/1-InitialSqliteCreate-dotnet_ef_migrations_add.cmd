@@ -1,6 +1,8 @@
 @set OLDTS=20230331164132
 
 @pushd ..
+	@mkdir Migrations
+
 	@rem Delete the old autogen
 	@pushd Migrations
 	del %OLDTS%_InitialSqliteCreate.cs

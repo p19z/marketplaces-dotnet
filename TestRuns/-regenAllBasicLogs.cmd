@@ -1,3 +1,5 @@
+@rem ~ @cd TestRuns
+
 @pushd ..\MarketplaceObjects.Sqlite\Migrations.cmd\
 	call 1-InitialSqliteCreate-dotnet_ef_migrations_add.cmd /NOPAUSE
 @popd

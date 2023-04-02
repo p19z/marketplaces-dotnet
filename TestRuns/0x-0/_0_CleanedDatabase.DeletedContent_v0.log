@@ -1,3 +1,4 @@
+run-1
 Argument=deleteSqliteContent0x-0
 _0x_CleanDatabase.DeleteSqliteMarketplace_v0!
 Querying for first marketplace
@@ -9,6 +10,7 @@ Querying for first user
 Delete the user 1 from the database
 Save changes
 
+run-2
 Argument=deleteSqliteContent0x-0
 _0x_CleanDatabase.DeleteSqliteMarketplace_v0!
 Querying for first marketplace
@@ -16,6 +18,7 @@ No marketplaces left. Nothing to delete.
 Querying for first user
 No users left. Nothing to delete.
 
+run-3
 Argument=deleteSqliteContent0x-0
 _0x_CleanDatabase.DeleteSqliteMarketplace_v0!
 Querying for first marketplace

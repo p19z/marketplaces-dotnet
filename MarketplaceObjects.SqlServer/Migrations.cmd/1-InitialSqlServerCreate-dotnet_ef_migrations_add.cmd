@@ -1,6 +1,8 @@
 @set OLDTS=20230331164142
 
 @pushd ..
+	@mkdir Migrations
+
 	@rem Delete the old autogen
 	@pushd Migrations
 	del %OLDTS%_InitialSqlServerCreate.cs
