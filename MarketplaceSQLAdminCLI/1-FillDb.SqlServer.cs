@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MarketplaceSQLAdminCLI
 {
-    internal static partial class _0_InitDatabase
+    internal class InitSqlServer : IFillDb
     {
-        internal static void CoreSqlServerDatabase_v0()
+        public void CoreDatabase_v0()
         {
             using (var db = new MarketplaceSqlServerContext())
             {
                 FillDb.CreateCustomViews_v0(db);
             }
         }
-        internal static void FillSqlServerDatabase_v0()
+        public void Population_v0()
         {
             using (var db = new MarketplaceSqlServerContext())
             {
@@ -20,16 +20,16 @@ namespace MarketplaceSQLAdminCLI
             }
         }
     }
-    internal static partial class _0_CleanDatabase
+    internal class CleanSqlServer : ICleanDb
     {
-        internal static void DeleteSqlServerCore_v0()
+        public void CoreDatabase_v0()
         {
             using (var db = new MarketplaceSqlServerContext())
             {
                 CleanDb.DeleteCustomViews_v0(db);
             }
         }
-        internal static void DeleteSqlServerMarketplace_v0()
+        public void Population_v0()
         {
             using (var db = new MarketplaceSqlServerContext())
             {

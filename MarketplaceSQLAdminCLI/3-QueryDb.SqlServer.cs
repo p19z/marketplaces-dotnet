@@ -2,17 +2,17 @@
 
 namespace MarketplaceSQLAdminCLI
 {
-    internal static class QueryDb
+    internal class QuerySqlServer : IQueryDb
     {
-        internal static List<RowsCounter> GetCounters(MarketplaceSQLContext db)
+        private static List<RowsCounter> GetCounters(MarketplaceSQLContext db)
         {
             return db.AllObjectsCounts
                 .ToList();
         }
 
-        internal static void PrintCountersToConsole()
+        public void PrintCountersToConsole()
         {
-            using (var db = new MarketplaceSqliteContext())
+            using (var db = new MarketplaceSqlServerContext())
             {
                 var counters = GetCounters(db);
                 foreach (var counter in counters)

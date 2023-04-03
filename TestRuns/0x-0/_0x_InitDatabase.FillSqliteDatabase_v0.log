@@ -1,6 +1,12 @@
-Argument=populateSqlite0x-0
-_0x_InitDatabase.InitSqliteDatabase_v0!
+Argument=populateSqlite
 Creating a super user
 Inserting a new marketplace
 Querying for first marketplace
 Creating a categories list
+
+Argument=statsSqlite
+MarketplacesCount: 1
+CategoriesCount: 3
+OffersCount: 0
+OrdersCount: 0
+UsersCount: 1
