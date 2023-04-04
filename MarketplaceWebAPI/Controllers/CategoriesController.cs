@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MarketplaceObjects;
+using MarketplaceControl;
 
 namespace MarketplaceWebAPI.Controllers
 {
@@ -10,8 +10,8 @@ namespace MarketplaceWebAPI.Controllers
     {
         private readonly MpSvcs svcs;
         public CategoriesController(
-            MarketplaceSQLContext context,
-            ILogger<MarketplaceSQLContext> logger
+            MarketplaceDbCtx context,
+            ILogger<MarketplaceDbCtx> logger
             )
         {
             svcs = new MpSvcs(context, logger);
@@ -28,7 +28,7 @@ namespace MarketplaceWebAPI.Controllers
         [HttpGet("byId")]
         public Category? Get(int id)
         {
-            svcs.logger.LogInformation("List<Category>? GetById()");
+            svcs.logger.LogInformation("Category? GetById()");
             return MarketplaceCtrl.GetCategoryById(svcs, id);
         }
 

@@ -2,10 +2,6 @@
 
 namespace MarketplaceObjects.SqlServer
 {
-    public class MarketplaceDbCtx : SqlServerCtx
-    {
-    }
-
     public class SqlServerCtx : MarketplaceSQLContext
     {
         public const string DbName = "marketplaces";

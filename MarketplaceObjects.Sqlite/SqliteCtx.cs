@@ -2,10 +2,6 @@
 
 namespace MarketplaceObjects.Sqlite
 {
-    public class MarketplaceDbCtx : SqliteCtx
-    {
-    }
-
     public class SqliteCtx : MarketplaceSQLContext
     {
         public const string DbName = "marketplaces";

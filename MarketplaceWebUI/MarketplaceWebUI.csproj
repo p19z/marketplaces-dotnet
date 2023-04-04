@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MarketplaceCtrl\MarketplaceCtrl.csproj" />
-    <ProjectReference Include="..\MarketplaceObjects.Sqlite\MarketplaceObjects.Sqlite.csproj" />
-    <ProjectReference Include="..\MarketplaceObjects.SqlServer\MarketplaceObjects.SqlServer.csproj" />
     <ProjectReference Include="..\MarketplaceSvcTools\MarketplaceSvcTools.csproj" />
   </ItemGroup>
 

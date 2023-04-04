@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketplaceObjects;
+using MarketplaceControl;
 
 namespace MarketplaceWebAPI.Controllers
 {
@@ -9,26 +10,18 @@ namespace MarketplaceWebAPI.Controllers
     {
         private readonly MpSvcs svcs;
         public UserController(
-            MarketplaceSQLContext context,
-            ILogger<MarketplaceSQLContext> logger
+            MarketplaceDbCtx context,
+            ILogger<MarketplaceDbCtx> logger
             )
         {
             svcs = new MpSvcs(context, logger);
             // ...
         }
 
-        [HttpGet(Name = "GetAccountInfoFromUserId_v0")]
+        [HttpGet("withOffersAndOrders")]
         public User? Get()
         {
             return MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, 1);
         }
-
-        [HttpGet("byId")]
-        public User? Get(int id)
-        {
-            svcs.logger.LogInformation("List<Category>? GetById()");
-            return MarketplaceCtrl.GetAccountInfoFromUserId_v0(svcs, id);
-        }
-
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MarketplaceObjects;
 
-namespace MarketplaceObjects
+namespace MarketplaceControl
 {
     public static class MarketplaceCtrl
     {

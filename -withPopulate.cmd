@@ -2,6 +2,6 @@
 
 @pushd MarketplaceSQLAdminCLI\%bin%
 
-MarketplaceSQLAdminCLI.exe sl-stats
+MarketplaceSQLAdminCLI.exe sl-populate
 
 @if "%~1"=="" @pause

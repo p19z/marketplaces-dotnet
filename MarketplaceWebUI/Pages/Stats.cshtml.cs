@@ -1,3 +1,4 @@
+using MarketplaceControl;
 using MarketplaceObjects;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,8 +11,8 @@ namespace MarketplaceWebUI.Pages
 
         private readonly MpSvcs svcs;
         public StatsModel(
-            MarketplaceSQLContext context,
-            ILogger<MarketplaceSQLContext> logger
+            MarketplaceDbCtx context,
+            ILogger<MarketplaceDbCtx> logger
             )
         {
             svcs = new MpSvcs(context, logger);
