@@ -1,4 +1,4 @@
-set OPTNNAME=initCoreSqlServer
+set OPTNNAME=ss-initCore
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

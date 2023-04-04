@@ -7,11 +7,11 @@
 	@pushd Migrations
 	del %OLDTS%_InitialSqliteCreate.cs
 	del %OLDTS%_InitialSqliteCreate.Designer.cs
-	del MarketplaceSqliteContextModelSnapshot.cs
+	del SqliteCtxModelSnapshot.cs
 	@popd
 
 	@rem Autogen init and schema
-	dotnet ef migrations add InitialSqliteCreate --context MarketplaceSqliteContext
+	dotnet ef migrations add InitialSqliteCreate --context SqliteCtx
 
 	@rem Restore the old timestamps
 	@pushd Migrations

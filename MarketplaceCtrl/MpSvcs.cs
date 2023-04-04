@@ -1,21 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MarketplaceObjects.Sqlite;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarketplaceObjects
 {
     public class MpSvcs
     {
-        public readonly MarketplaceDbCtx context;
-        public readonly ILogger<MarketplaceDbCtx> logger;
+        //public readonly MarketplaceDbCtx context;
+        //public readonly ILogger<MarketplaceDbCtx> logger;
+
+        public readonly MarketplaceSQLContext context;
+        public readonly ILogger<MarketplaceSQLContext> logger;
 
         public MpSvcs(
-            MarketplaceDbCtx contextIn,
-            ILogger<MarketplaceDbCtx> loggerIn
+            MarketplaceSQLContext contextIn,
+            ILogger<MarketplaceSQLContext> loggerIn
             )
         {
             context = contextIn ?? throw new ArgumentNullException(nameof(contextIn));

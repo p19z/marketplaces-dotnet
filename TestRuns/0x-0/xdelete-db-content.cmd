@@ -1,6 +1,6 @@
 set TESTNAME=_0_CleanedDatabase.DeletedContent_v0
 
-set OPTNNAME=deleteSqliteContent
+set OPTNNAME=sl-depopulate
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

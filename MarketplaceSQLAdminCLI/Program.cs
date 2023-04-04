@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using MarketplaceSQLAdminCLI;
+using MarketplaceObjects.Sqlite;
+using MarketplaceObjects.SqlServer;
 
 if (args.Length > 0)
 {
@@ -11,44 +13,43 @@ if (args.Length > 0)
             //
             // CORE
             //
-            case "initCoreSqlite":
-                new InitSqlite().CoreDatabase_v0();
+            case "sl-initCore":
+                new FillDb<SqliteCtx>().CoreDatabase_v0();
                 break;
-            case "deleteCoreSqlite":
-                new CleanSqlite().CoreDatabase_v0();
+            case "sl-removeCore":
+                new CleanDb<SqliteCtx>().CoreDatabase_v0();
                 break;
-            case "initCoreSqlServer":
-                new InitSqlServer().CoreDatabase_v0();
+            case "ss-initCore":
+                new FillDb<SqlServerCtx>().CoreDatabase_v0();
                 break;
-            case "deleteCoreSqlServer":
-                new InitSqlServer().CoreDatabase_v0();
+            case "ss-removeCore":
+                new CleanDb<SqlServerCtx>().CoreDatabase_v0();
                 break;
 
             //
             // POPULATE
             //
-            case "populateSqlite":
-                new InitSqlite().Population_v0();
+            case "sl-populate":
+                new FillDb<SqliteCtx>().Population_v0();
                 break;
-            case "deleteSqliteContent":
-                new CleanSqlite().Population_v0();
+            case "sl-depopulate":
+                new CleanDb<SqliteCtx>().Population_v0();
                 break;
-            case "populateSqlServer":
-                new InitSqlServer().Population_v0();
+            case "ss-populate":
+                new FillDb<SqlServerCtx>().Population_v0();
                 break;
-            case "deleteSqlServerContent":
-                new CleanSqlServer().Population_v0();
+            case "ss-depopulate":
+                new CleanDb<SqlServerCtx>().Population_v0();
                 break;
 
             //
             // OTHER
             //
-            case "query":
-            case "statsSqlite":
-                new QuerySqlite().PrintCountersToConsole();
+            case "sl-stats":
+                new QueryDb<SqliteCtx>().PrintCountersToConsole();
                 break;
-            case "statsSqlServer":
-                new QuerySqlServer().PrintCountersToConsole();
+            case "ss-stats":
+                new QueryDb<SqlServerCtx>().PrintCountersToConsole();
                 break;
         }
     }

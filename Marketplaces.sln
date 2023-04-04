@@ -29,16 +29,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0x-0", "0x-0", "{6E5B37AF-5C20-4800-8E72-8688CBFFE87B}"
 	ProjectSection(SolutionItems) = preProject
 		TestRuns\0x-0\create-ex-nihilo.cmd = TestRuns\0x-0\create-ex-nihilo.cmd
+		TestRuns\0x-0\initialize-db-0x-0.cmd = TestRuns\0x-0\initialize-db-0x-0.cmd
 		TestRuns\0x-0\populate-db-0x-0.cmd = TestRuns\0x-0\populate-db-0x-0.cmd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0x-0b-sysadmin", "0x-0b-sysadmin", "{8D228C5E-04B4-4FCE-B5B3-F4985D7CF2A9}"
 	ProjectSection(SolutionItems) = preProject
 		TestRuns\0x-0b-sysadmin\create-ex-nihilo.cmd = TestRuns\0x-0b-sysadmin\create-ex-nihilo.cmd
+		TestRuns\0x-0b-sysadmin\initialize-db-0x-0.cmd = TestRuns\0x-0b-sysadmin\initialize-db-0x-0.cmd
 		TestRuns\0x-0b-sysadmin\populate-db-0x-0.cmd = TestRuns\0x-0b-sysadmin\populate-db-0x-0.cmd
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceSvcTools", "MarketplaceSvcTools\MarketplaceSvcTools.csproj", "{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceSvcTools", "MarketplaceSvcTools\MarketplaceSvcTools.csproj", "{B9144CB7-7950-40D7-BFBE-871DF12FE2C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketplaceSQLAdminCLI
 {
-    internal interface IFillDb
-    {
-        internal void CoreDatabase_v0();
-        internal void Population_v0();
-    }
-
-    internal interface ICleanDb
+    internal interface ICommonFillOrCleanDbOperations
     {
         internal void CoreDatabase_v0();
         internal void Population_v0();

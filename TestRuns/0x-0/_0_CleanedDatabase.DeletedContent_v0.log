@@ -1,5 +1,5 @@
 run-1
-Argument=deleteSqliteContent
+Argument=sl-depopulate
 Querying for first marketplace
 Delete the marketplace 1 from the database
 Save changes
@@ -10,14 +10,14 @@ Delete the user 1 from the database
 Save changes
 
 run-2
-Argument=deleteSqliteContent
+Argument=sl-depopulate
 Querying for first marketplace
 No marketplaces left. Nothing to delete.
 Querying for first user
 No users left. Nothing to delete.
 
 run-3
-Argument=deleteSqliteContent
+Argument=sl-depopulate
 Querying for first marketplace
 No marketplaces left. Nothing to delete.
 Querying for first user

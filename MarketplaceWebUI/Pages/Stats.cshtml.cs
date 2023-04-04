@@ -10,8 +10,8 @@ namespace MarketplaceWebUI.Pages
 
         private readonly MpSvcs svcs;
         public StatsModel(
-            MarketplaceDbCtx context,
-            ILogger<MarketplaceDbCtx> logger
+            MarketplaceSQLContext context,
+            ILogger<MarketplaceSQLContext> logger
             )
         {
             svcs = new MpSvcs(context, logger);

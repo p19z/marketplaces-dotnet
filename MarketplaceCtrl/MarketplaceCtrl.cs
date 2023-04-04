@@ -28,14 +28,13 @@ namespace MarketplaceObjects
 
         public static List<RowsCounter> GetStatisticsV0(MpSvcs svcs)
         {
-            svcs.logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
+            svcs.logger?.LogInformation("[ctl] !!!GetStatisticsV0!!!");
             return svcs.context.AllObjectsCounts
                 .ToList();
         }
 
         public static List<Category> GetAllCategories(MpSvcs svcs)
         {
-            //logger?.LogInformation("[ctl] !!!GetMarketplace!!!");
             return svcs.context.Categories
                 .OrderBy(m => m.CategoryId)
                 .ToList();

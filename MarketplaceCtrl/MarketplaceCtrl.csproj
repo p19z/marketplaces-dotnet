@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MarketplaceObjects.Sqlite\MarketplaceObjects.Sqlite.csproj" />
+    <ProjectReference Include="..\MarketplaceObjects\MarketplaceObjects.csproj" />
   </ItemGroup>
 
 </Project>

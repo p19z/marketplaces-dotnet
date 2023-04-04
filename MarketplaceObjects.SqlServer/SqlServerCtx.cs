@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MarketplaceObjects
+namespace MarketplaceObjects.SqlServer
 {
-    public class MarketplaceDbCtx : MarketplaceSqlServerContext
+    public class MarketplaceDbCtx : SqlServerCtx
     {
     }
 
-    public class MarketplaceSqlServerContext : MarketplaceSQLContext
+    public class SqlServerCtx : MarketplaceSQLContext
     {
         public const string DbName = "marketplaces";
 
-        public MarketplaceSqlServerContext()
+        public SqlServerCtx()
         {
         }
 

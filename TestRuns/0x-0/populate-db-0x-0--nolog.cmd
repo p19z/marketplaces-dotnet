@@ -1,4 +1,4 @@
-set OPTNNAME=populateSqlite0x-0
+set OPTNNAME=sl-populate
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

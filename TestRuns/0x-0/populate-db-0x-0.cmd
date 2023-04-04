@@ -1,7 +1,7 @@
 set TESTNAME=_0x_InitDatabase.FillSqliteDatabase_v0
 
-set OPTNNAME=populateSqlite
-set OPTNNAME2=statsSqlite
+set OPTNNAME=sl-populate
+set OPTNNAME2=sl-stats
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

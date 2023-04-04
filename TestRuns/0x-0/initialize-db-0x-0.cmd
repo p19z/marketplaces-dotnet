@@ -1,4 +1,4 @@
-set OPTNNAME=initCoreSqlite
+set OPTNNAME=sl-initCore
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

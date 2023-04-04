@@ -1,5 +1,5 @@
-set OPTNNAME=populateSqlServer
-set OPTNNAME2=statsSqlServer
+set OPTNNAME=ss-populate
+set OPTNNAME2=ss-stats
 
 set project=MarketplaceSQLAdminCLI
 set bin=bin\Debug\net6.0

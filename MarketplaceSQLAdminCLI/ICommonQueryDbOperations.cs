@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketplaceSQLAdminCLI
 {
-    internal interface IQueryDb
+    internal interface ICommonQueryDbOperations
     {
         public void PrintCountersToConsole();
     }

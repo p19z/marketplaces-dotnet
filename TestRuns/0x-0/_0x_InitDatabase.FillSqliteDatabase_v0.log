@@ -1,10 +1,10 @@
-Argument=populateSqlite
+Argument=sl-populate
 Creating a super user
 Inserting a new marketplace
 Querying for first marketplace
 Creating a categories list
 
-Argument=statsSqlite
+Argument=sl-stats
 MarketplacesCount: 1
 CategoriesCount: 3
 OffersCount: 0

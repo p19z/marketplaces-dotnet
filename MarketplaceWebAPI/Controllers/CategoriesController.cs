@@ -10,8 +10,8 @@ namespace MarketplaceWebAPI.Controllers
     {
         private readonly MpSvcs svcs;
         public CategoriesController(
-            MarketplaceDbCtx context,
-            ILogger<MarketplaceDbCtx> logger
+            MarketplaceSQLContext context,
+            ILogger<MarketplaceSQLContext> logger
             )
         {
             svcs = new MpSvcs(context, logger);

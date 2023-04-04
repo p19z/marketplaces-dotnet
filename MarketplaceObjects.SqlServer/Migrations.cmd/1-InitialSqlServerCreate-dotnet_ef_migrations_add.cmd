@@ -7,11 +7,11 @@
 	@pushd Migrations
 	del %OLDTS%_InitialSqlServerCreate.cs
 	del %OLDTS%_InitialSqlServerCreate.Designer.cs
-	del MarketplaceSqlServerContextModelSnapshot.cs
+	del SqlServerCtxModelSnapshot.cs
 	@popd
 
 	@rem Autogen init and schema
-	dotnet ef migrations add InitialSqlServerCreate --context MarketplaceSqlServerContext
+	dotnet ef migrations add InitialSqlServerCreate --context SqlServerCtx
 
 	@rem Restore the old timestamps
 	@pushd Migrations

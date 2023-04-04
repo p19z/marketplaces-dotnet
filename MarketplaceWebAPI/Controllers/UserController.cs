@@ -9,8 +9,8 @@ namespace MarketplaceWebAPI.Controllers
     {
         private readonly MpSvcs svcs;
         public UserController(
-            MarketplaceDbCtx context,
-            ILogger<MarketplaceDbCtx> logger
+            MarketplaceSQLContext context,
+            ILogger<MarketplaceSQLContext> logger
             )
         {
             svcs = new MpSvcs(context, logger);

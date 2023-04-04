@@ -2,9 +2,9 @@
 
 namespace MarketplaceSQLAdminCLI
 {
-    internal class QuerySqlServer : IQueryDb
+    internal class QueryDb<TDbContext> : ICommonQueryDbOperations where TDbContext : MarketplaceSQLContext, IDisposable, new()
     {
-        private static List<RowsCounter> GetCounters(MarketplaceSQLContext db)
+        private static List<RowsCounter> GetCounters(TDbContext db)
         {
             return db.AllObjectsCounts
                 .ToList();
@@ -12,7 +12,7 @@ namespace MarketplaceSQLAdminCLI
 
         public void PrintCountersToConsole()
         {
-            using (var db = new MarketplaceSqlServerContext())
+            using (var db = new TDbContext())
             {
                 var counters = GetCounters(db);
                 foreach (var counter in counters)

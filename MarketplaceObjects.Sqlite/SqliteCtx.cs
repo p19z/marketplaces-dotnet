@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MarketplaceObjects
+namespace MarketplaceObjects.Sqlite
 {
-    public class MarketplaceDbCtx : MarketplaceSqliteContext
+    public class MarketplaceDbCtx : SqliteCtx
     {
     }
 
-    public class MarketplaceSqliteContext : MarketplaceSQLContext
+    public class SqliteCtx : MarketplaceSQLContext
     {
         public const string DbName = "marketplaces";
 
         public string DbPath { get { return GetDbPath(); } }
 
-        public MarketplaceSqliteContext()
+        public SqliteCtx()
         {
         }
 
